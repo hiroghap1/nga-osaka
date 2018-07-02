@@ -1,3 +1,128 @@
 @import 'foundation/setting/*';
-
 @import '../../../mimizuku/src/css/style';
+//ヘッダー
+._l-header {
+  height: 50px;
+  box-shadow: 0 1px 1px #666;
+}
+
+._c-site-branding__title {
+  font-size: 4.5vw;
+  line-height: 50px;
+  a {
+    color: #306551;
+  }
+}
+
+._c-hamburger-btn__bar {
+  background: #66B295;
+}
+
+//パンくずリスト
+._c-breadcrumbs {
+  margin: 15px 0;
+}
+
+._c-breadcrumbs__item a {
+  color: #66B295;
+  text-decoration: none;
+  :hover {
+    color: #306551;
+  }
+}
+
+//共通設定
+h1 {
+  font-size: 2rem;
+}
+
+//ドロワーメニュー
+._c-drawer__body {
+  background-color: rgba(48, 101, 81, .925);
+}
+
+//フッター
+._l-footer {
+  background: #306551;
+  color: white;
+}
+
+._c-copyright {
+  padding-bottom: 1rem;
+  text-align: center;
+  font-size: .8rem;
+}
+
+//店舗一覧ページ
+.store {
+  h1 {
+    padding-top: 5px;
+    color: #306551;
+  }
+}
+
+.store-keyvisual {
+  background: center center/cover no-repeat;
+  height: 200px;
+  width: 100vw;
+  @include _media_min(639px) {
+    height: 300px;
+    background-attachment: fixed;
+  }
+  @include _media_min(1023px) {
+    height: 400px;
+    margin-top: 50px;
+  }
+}
+
+._c-entry__content .store-info {
+  margin-top: 15px;
+}
+
+.store-info {
+  margin-left: -12px;
+  width: 100vw;
+  border-top: solid 2px #306551;
+  @include _media_min(480px) {
+    width: 100%;
+    margin-left: 0;
+    border-left: solid 1px #999;
+    border-right: solid 1px #999;
+  }
+  dt,
+  dd {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: solid 1px #999;
+  }
+  dt {
+    background: lighten(#66B295, 30%);
+    font-weight: normal;
+  }
+  dd {
+    flex-flow: wrap;
+    flex-basis: 100%;
+    text-align: left;
+  }
+  h2 {
+    font-size: 1.2rem;
+    .pref {
+      display: inline-block;
+      padding: .2rem .5rem;
+      background: #666;
+      color: white;
+    }
+  }
+}
+
+.sake-type {
+  margin-left: 0;
+  li {
+    display: inline-block;
+    padding: 3px 5px;
+    border: solid 1px #666;
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
+}
