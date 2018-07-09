@@ -2,8 +2,7 @@
 @import '../../../mimizuku/src/css/style';
 //ヘッダー
 ._l-header {
-  height: 50px;
-  box-shadow: 0 1px 1px #666;
+  box-shadow: 0 1px 1px #306551;
 }
 
 ._c-site-branding__title {
@@ -12,6 +11,26 @@
   a {
     color: #306551;
   }
+}
+
+._c-site-branding__title-img {
+  width: 200px;
+}
+
+._c-hamburger-btn::after {
+  display: block;
+  position: absolute;
+  padding-top: 2px;
+  content: 'MENU';
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #66B295;
+  font-size: 8px;
+}
+
+._c-hamburger-btn[aria-expanded="true"]::after {
+  content: 'CLOSE';
 }
 
 ._c-hamburger-btn__bar {

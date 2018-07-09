@@ -13,24 +13,31 @@ $sake_temp = $sake_temps['value'];
 ?>
 
 <dl class="store-info _c-row">
+<dt class="_c-row__col--1-4">住所</dt>
+  <dd class="_c-row__col--3-4"><?php the_field('address'); ?></dd>
+  <?php if ( get_field('tel')): ?>
+  <dt class="_c-row__col--1-4">電話番号</dt>
+  <dd class="_c-row__col--3-4"><a href="tel:<?php str_replace("-","", the_field('tel')) ?>"><?php the_field('tel');?></a></dd>
+<?php endif; ?>
   <dt class="_c-row__col--1-4">開催時間</dt>
   <dd class="_c-row__col--3-4"> <?php echo substr_replace(get_field('open'),':',2,0); ?>〜<?php echo substr_replace(get_field('last_order'),':',2,0); ?>(L.O.)</span></dd>
   <dt class="_c-row__col--1-4">収容人数</dt>
   <dd class="_c-row__col--3-4">着席<?php echo $seating; ?>名/立食<?php echo $standing;?>名/合計<?php echo $seating + $standing; ?>名</dd>
-  <dt class="_c-row__col--1-4">住所</dt>
-  <dd class="_c-row__col--3-4"><?php the_field('address'); ?></dd>
-  <dt class="_c-row__col--1-4">電話番号</dt>
-  <dd class="_c-row__col--3-4"><a href="tel:<?php str_replace("-","", the_field('tel')) ?>"><?php the_field('tel');?></a></dd>
+<?php if ( get_field('amuse')): ?>
   <dt class="_c-row__col--1-4">付きだし</dt>
   <dd class="_c-row__col--3-4"><figure>
 <img class="amuse-photo" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
 </figure>
 <h2><?php the_field('amuse'); ?></h2></dd>
+<?php endif; ?>
+<?php if (get_field('price')): ?>
   <dt class="_c-row__col--1-4">料金</dt>
   <dd class="_c-row__col--3-4"><?php the_field('price'); ?>円</dd>
+<?php endif; ?>
   <dt class="_c-row__col--1-4">サービス酒</dt>
   <dd class="_c-row__col--3-4"><h2 class="sake-name"><?php the_field('sake'); ?> <?php the_field('sake_name'); ?>
   <small class="pref"><?php the_field('sake_pref'); ?></small></h2></dd>
+  <?php if($sake_freshes['label'] || $sake_fragrances['label'] ||$sake_tastes['label']): ?>
   <dt class="_c-row__col--1-4">お酒のタイプ</dt>
   <dd class="_c-row__col--3-4">
     <ul class="sake-type">
@@ -49,8 +56,13 @@ $sake_temp = $sake_temps['value'];
     <span><?php echo $sake_temps['choices'][$temp]; ?></span><?php endforeach; ?></div>
     <?php endif; ?>
   </dd>
+<?php endif; ?>
+  <?php if( get_field('sake_man')): ?>
   <dt class="_c-row__col--1-4">参加蔵元氏名（役職）</dt>
   <dd class="_c-row__col--3-4"><?php the_field('sake_man'); ?></dd>
+<?php endif; ?>
+<?php if( get_field('sake_desc')): ?>
   <dt class="_c-row__col--1-4">蔵元の紹介</dt>
   <dd class="_c-row__col--3-4"><?php the_field('sake_desc'); ?></dd>
+<?php endif; ?>
 </dl>
