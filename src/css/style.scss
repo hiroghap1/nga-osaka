@@ -51,8 +51,30 @@
 }
 
 //共通設定
-h1 {
-  font-size: 2rem;
+._l-contents {
+  h1 {
+    position: relative;
+    margin-bottom: 50px;
+    font-size: 2rem;
+    text-align: center;
+  }
+  h1::after {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    margin-top: 10px;
+    transform: translateX(-50%);
+    content: '';
+    background: #306551;
+    width: 3em;
+    height: 2px;
+  }
+}
+
+.storelist-banner {
+  width: 600px;
+  max-width: 100%;
 }
 
 //ドロワーメニュー
@@ -60,10 +82,60 @@ h1 {
   background-color: rgba(48, 101, 81, .925);
 }
 
+//index キーヴィジュアル
+.index-keyvisual {
+  margin-bottom: 20px;
+  height: 300px;
+  min-height: 300px;
+}
+
+.sakazukin-osaka {
+  height: 100%;
+}
+
+.index-description {
+  display: inline-block;
+  padding: 1em;
+  border: solid 2px #306551;
+}
+
+//店舗一覧ページ
+._c-entries__item-store {
+  margin-bottom: 15px;
+  padding: 1rem 1.5rem;
+  border: solid 1px #66B295;
+  box-shadow: 0 1px 1px #66B295;
+  a {
+    text-decoration: none;
+    color: #306551;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  ._c-entry-summary__title {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+  }
+  ._c-entry-summary__info-photo {
+    display: flex;
+    align-items: center;
+  }
+  ._c-entry-summary__info-desc {
+    padding: 0 1rem;
+    h3 {
+      font-size: 1.2rem;
+    }
+  }
+}
+
 //フッター
 ._l-footer {
+  padding-top: 20px;
   background: #306551;
   color: white;
+  a {
+    color: white;
+  }
 }
 
 ._c-copyright {
