@@ -45,8 +45,41 @@
   @include _margin(0, 0, 1);
 }
 
+.btn-sort_box,
+.btn-refine_box {
+  width: 50%;
+  &::before {
+    margin-right: 5px;
+    content: '\f055';
+    font-family: Fontawesome;
+    color: $_color_main1;
+  }
+  &.open {
+    border-bottom: none;
+    &::before {
+      content: '\f056';
+    }
+  }
+}
+
+.btn-sort_box {
+  border-right: none;
+}
+
+._c-box--sort_btn,
+._c-box--refine_btn {
+  display: none;
+  @include _padding(.5);
+  border: solid 1px _light($_color_gray);
+  border-top: none;
+}
+
 ._c-btn-sort {
   padding: 0;
+  &.on {
+    background: lighten($_color_lightgray, 5%);
+    box-shadow: 0 2px 3px $_color_lightgray;
+  }
   &:hover {
     background: $_color_lightgray;
   }
@@ -76,10 +109,6 @@
       display: inline;
     }
   }
-  &.on {
-    background: $_color_lightgray;
-    box-shadow: 0 2px 3px $_color_lightgray;
-  }
   &:not(.on) {
     i:not(.fa-sort) {
       display: none;
@@ -94,6 +123,6 @@
   @include sort-order('早い順', '遅い順');
 }
 
-[data-sort="ol"] {
+[data-sort="lo"] {
   @include sort-order('早い順', '遅い順');
 }
