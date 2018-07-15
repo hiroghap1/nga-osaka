@@ -23,15 +23,21 @@
       <i class="fa fa-sort-asc" aria-hidden="true"></i>
       <i class="fa fa-sort-desc" aria-hidden="true"></i>
     </span></button>
+  <button class="_c-btn _c-btn-sort" data-sort="price"><span>付きだし料金</span>
+  <span>
+      <i class="fa fa-sort" aria-hidden="true"></i>
+      <i class="fa fa-sort-asc" aria-hidden="true"></i>
+      <i class="fa fa-sort-desc" aria-hidden="true"></i>
+    </span></button>
 </div>
 <div class="_c-box--refine_btn" id="_c-box--refine_btn">
-<label><input type="checkbox" name="address" value="北区" checked>北区</label>
-<label><input type="checkbox" name="address" value="都島区" checked>都島区</label>
-<label><input type="checkbox" name="address" value="福島区" checked>福島区</label>
-  <label><input type="checkbox" name="address" value="中央区" checked>中央区</label>
-  <label><input type="checkbox" name="address" value="浪速区" checked>浪速区</label>
-  <label><input type="checkbox" name="address" value="天王寺区" checked>天王寺区</label>
-  <label><input type="checkbox" name="address" value="東成区" checked>東成区</label>
+<label><span class="_c-checkbox"><input type="checkbox" name="address" value="北区" checked><span class="_c-checkbox__control"></span></span>北区</label>
+<label><span class="_c-checkbox"><input type="checkbox" name="address" value="都島区" checked><span class="_c-checkbox__control"></span></span>都島区</label>
+<label><span class="_c-checkbox"><input type="checkbox" name="address" value="福島区" checked><span class="_c-checkbox__control"></span></span>福島区</label>
+  <label><span class="_c-checkbox"><input type="checkbox" name="address" value="中央区" checked><span class="_c-checkbox__control"></span></span>中央区</label>
+  <label><span class="_c-checkbox"><input type="checkbox" name="address" value="浪速区" checked><span class="_c-checkbox__control"></span></span>浪速区</label>
+  <label><span class="_c-checkbox"><input type="checkbox" name="address" value="天王寺区" checked><span class="_c-checkbox__control"></span></span>天王寺区</label>
+  <label><span class="_c-checkbox"><input type="checkbox" name="address" value="東成区" checked><span class="_c-checkbox__control"></span></span>東成区</label>
 </div></div>
 <ul class="_c-entries" id="store-list">
 	<?php while (have_posts()) : the_post(); ?>

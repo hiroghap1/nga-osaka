@@ -14,7 +14,7 @@ $price = get_field('price');
 $address = get_field('address');
 ?>
 
-<li class="_c-entries__item _c-entries__item-store" data-open="<?php echo $open; ?>" data-lo="<?php echo $lo; ?>" data-address="<?php echo mb_substr($address, 0, mb_strpos($address, '区')+1); ?>">
+<li class="_c-entries__item _c-entries__item-store" data-open="<?php echo $open; ?>" data-lo="<?php echo $lo; ?>" data-address="<?php echo mb_substr($address, 0, mb_strpos($address, '区')+1); ?>" data-price="<?php echo str_pad($price, 4 - strlen($price), 0, STR_PAD_LEFT); ?>">
   <section class="_c-entry-summary _c-entry-summary-store">
     <header class="_c-entry-summary__header">
 		  <h2 class="_c-entry-summary__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
@@ -31,7 +31,7 @@ $address = get_field('address');
         <p><i class="fa fa-clock-o" aria-hidden="true"></i> <span class="store-open"><?php echo substr_replace($open, ':', 2, 0); ?></span>～<span class="store-lo"><?php echo substr_replace($lo, ':', 2, 0); ?>(L.O.)</span></p>
         <p>着席<?php echo $seating; ?>名 / 立食<?php echo $standing;?>名 / 合計<?php echo $seating + $standing; ?>名</p>
         <h3><?php the_field('amuse'); ?></h3>
-        <p><?php echo $price; ?>円</p>
+        <p class="store-price"><?php echo $price; ?>円</p>
         <p><?php the_field('store_desc'); ?></p>
       </div>
 	  </div>

@@ -131,10 +131,20 @@
   }
 }
 
+[data-class="price"] {
+  .store-price {
+    font-weight: bold;
+  }
+}
+
 [data-sort="open"] {
   @include sort-order('早い順', '遅い順');
 }
 
 [data-sort="lo"] {
   @include sort-order('早い順', '遅い順');
+}
+
+[data-sort="price"] {
+  @include sort-order('安い順', '高い順');
 }
