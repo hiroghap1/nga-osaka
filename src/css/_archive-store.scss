@@ -119,6 +119,18 @@
   }
 }
 
+[data-class="open"] {
+  .store-open {
+    font-weight: bold;
+  }
+}
+
+[data-class="lo"] {
+  .store-lo {
+    font-weight: bold;
+  }
+}
+
 [data-sort="open"] {
   @include sort-order('早い順', '遅い順');
 }
