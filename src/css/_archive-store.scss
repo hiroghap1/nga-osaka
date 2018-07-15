@@ -1,0 +1,99 @@
+//ソートボタン用
+@mixin sort-order($asc, $desc) {
+  &.sort-asc {
+    span:first-child::after {
+      content: ':'$asc;
+    }
+  }
+  &.sort-desc {
+    span:first-child::after {
+      content: ':'$desc;
+    }
+  }
+}
+
+//店舗一覧ページ
+._c-entries__item-store {
+  margin-bottom: 15px;
+  padding: 1rem 1.5rem;
+  border: solid 1px $_color_main2;
+  box-shadow: 0 1px 1px $_color_main2;
+  a {
+    text-decoration: none;
+    color: $_color_main1;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  ._c-entry-summary__title {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+  }
+  ._c-entry-summary__info-photo {
+    display: flex;
+    align-items: center;
+  }
+  ._c-entry-summary__info-desc {
+    padding: 0 1rem;
+    h3 {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.store-archive_panel {
+  @include _margin(0, 0, 1);
+}
+
+._c-btn-sort {
+  padding: 0;
+  &:hover {
+    background: $_color_lightgray;
+  }
+  span {
+    display: inline-block;
+    padding: .75rem;
+  }
+  .fa-sort-asc {
+    display: none;
+  }
+  .fa-sort-desc {
+    display: none;
+  }
+  &.sort-asc {
+    i:not(.fa-sort-asc) {
+      display: none;
+    }
+    .fa-sort-asc {
+      display: inline;
+    }
+  }
+  &.sort-desc {
+    i:not(.fa-sort-desc) {
+      display: none;
+    }
+    .fa-sort-desc {
+      display: inline;
+    }
+  }
+  &.on {
+    background: $_color_lightgray;
+    box-shadow: 0 2px 3px $_color_lightgray;
+  }
+  &:not(.on) {
+    i:not(.fa-sort) {
+      display: none;
+    }
+    .fa-sort {
+      display: inline;
+    }
+  }
+}
+
+[data-sort="open"] {
+  @include sort-order('早い順', '遅い順');
+}
+
+[data-sort="ol"] {
+  @include sort-order('早い順', '遅い順');
+}

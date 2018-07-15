@@ -1,29 +1,29 @@
 'use strict';
 
-var gulp         = require('gulp');
-var sass         = require('gulp-sass');
-var sassGlob     = require('gulp-sass-glob');
-var postcss      = require('gulp-postcss');
-var cssnano      = require('cssnano');
-var rename       = require('gulp-rename');
-var uglify       = require('gulp-uglify');
+var gulp = require('gulp');
+var sass = require('gulp-sass');
+var sassGlob = require('gulp-sass-glob');
+var postcss = require('gulp-postcss');
+var cssnano = require('cssnano');
+var rename = require('gulp-rename');
+var uglify = require('gulp-uglify');
 var browser_sync = require('browser-sync');
 var autoprefixer = require('autoprefixer');
-var rimraf       = require('rimraf');
-var rollup       = require('gulp-rollup');
-var nodeResolve  = require('rollup-plugin-node-resolve');
-var commonjs     = require('rollup-plugin-commonjs');
-var babel        = require('rollup-plugin-babel');
+var rimraf = require('rimraf');
+var rollup = require('gulp-rollup');
+var nodeResolve = require('rollup-plugin-node-resolve');
+var commonjs = require('rollup-plugin-commonjs');
+var babel = require('rollup-plugin-babel');
 
 var dir = {
   src: {
     css: 'src/css',
-    js : 'src/js',
+    js: 'src/js',
     img: 'src/img'
   },
   dist: {
     css: 'assets/css',
-    js : 'assets/js',
+    js: 'assets/js',
     img: 'assets/img'
   }
 }
@@ -31,7 +31,7 @@ var dir = {
 /**
  * Build CSS
  */
-gulp.task('css', function() {
+gulp.task('css', function () {
   return sassCompile(dir.src.css + '/*.scss', dir.dist.css);
 });
 
@@ -53,14 +53,16 @@ function sassCompile(src, dest) {
         'zindex': false
       })
     ]))
-    .pipe(rename({suffix: '.min'}))
+    .pipe(rename({
+      suffix: '.min'
+    }))
     .pipe(gulp.dest(dest))
 }
 
 /**
  * Build javascript
  */
-gulp.task('js', function() {
+gulp.task('js', function () {
   gulp.src(dir.src.js + '/**/*.js')
     .pipe(rollup({
       allowRealFiles: true,
@@ -71,7 +73,9 @@ gulp.task('js', function() {
         jquery: "jQuery"
       },
       plugins: [
-        nodeResolve({ jsnext: true }),
+        nodeResolve({
+          jsnext: true
+        }),
         commonjs(),
         babel({
           presets: ['es2015-rollup'],
@@ -80,10 +84,12 @@ gulp.task('js', function() {
       ]
     }))
     .pipe(gulp.dest(dir.dist.js))
-    .on('end', function() {
+    .on('end', function () {
       gulp.src([dir.dist.js + '/app.js'])
         .pipe(uglify())
-        .pipe(rename({suffix: '.min'}))
+        .pipe(rename({
+          suffix: '.min'
+        }))
         .pipe(gulp.dest(dir.dist.js));
     });
 });
@@ -91,14 +97,14 @@ gulp.task('js', function() {
 /**
  * Remove images in assets directory
  */
-gulp.task('remove-images', function(cb) {
+gulp.task('remove-images', function (cb) {
   rimraf(dir.dist.img, cb);
 });
 
 /**
  * Copy images to assets directory
  */
-gulp.task('img', ['remove-images'], function() {
+gulp.task('img', ['remove-images'], function () {
   return gulp.src(dir.src.img + '/**/*')
     .pipe(gulp.dest(dir.dist.img));
 });
@@ -111,22 +117,22 @@ gulp.task('build', ['css', 'js', 'img']);
 /**
  * browsersync
  */
-gulp.task('browsersync', function() {
+gulp.task('browsersync', function () {
   browser_sync.init({
     proxy: '127.0.0.1:8080',
-		files: [
+    files: [
       '**/*.php',
       dir.dist.js + '/app.min.js',
       dir.dist.css + '/style.min.css'
-		]
+    ]
   });
 });
 
 /**
  * Auto build and browsersync
  */
-gulp.task('default', ['build', 'browsersync'], function() {
+gulp.task('default', ['build', 'browsersync'], function () {
   gulp.watch([dir.src.css + '/**/*.scss'], ['css']);
-  gulp.watch([dir.src.js + '/**/*.js'] , ['js']);
-  gulp.watch([dir.src.img + '/**/*'] , ['img']);
+  gulp.watch([dir.src.js + '/**/*.js'], ['js']);
+  gulp.watch([dir.src.img + '/**/*'], ['img']);
 });

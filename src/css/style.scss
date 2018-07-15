@@ -1,15 +1,20 @@
 @import 'foundation/setting/*';
 @import '../../../mimizuku/src/css/style';
+//変数
+$_color_main1: #306551;
+$_color_main2: #66B295;
+$_color_lightgray: #eee;
+@import 'archive-store';
 //ヘッダー
 ._l-header {
-  box-shadow: 0 1px 1px #306551;
+  box-shadow: 0 1px 1px $_color_main1;
 }
 
 ._c-site-branding__title {
   font-size: 4.5vw;
   line-height: 50px;
   a {
-    color: #306551;
+    color: $_color_main1;
   }
 }
 
@@ -25,7 +30,7 @@
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  color: #66B295;
+  color: $_color_main2;
   font-size: 8px;
 }
 
@@ -34,7 +39,7 @@
 }
 
 ._c-hamburger-btn__bar {
-  background: #66B295;
+  background: $_color_main2;
 }
 
 //パンくずリスト
@@ -43,14 +48,18 @@
 }
 
 ._c-breadcrumbs__item a {
-  color: #66B295;
+  color: $_color_main2;
   text-decoration: none;
   :hover {
-    color: #306551;
+    color: $_color_main1;
   }
 }
 
 //共通設定
+._u-hidden-all {
+  display: none;
+}
+
 ._l-contents {
   h1 {
     position: relative;
@@ -66,7 +75,7 @@
     margin-top: 10px;
     transform: translateX(-50%);
     content: '';
-    background: #306551;
+    background: $_color_main1;
     width: 3em;
     height: 2px;
   }
@@ -96,42 +105,13 @@
 .index-description {
   display: inline-block;
   padding: 1em;
-  border: solid 2px #306551;
-}
-
-//店舗一覧ページ
-._c-entries__item-store {
-  margin-bottom: 15px;
-  padding: 1rem 1.5rem;
-  border: solid 1px #66B295;
-  box-shadow: 0 1px 1px #66B295;
-  a {
-    text-decoration: none;
-    color: #306551;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-  ._c-entry-summary__title {
-    margin-bottom: 10px;
-    font-size: 1.5rem;
-  }
-  ._c-entry-summary__info-photo {
-    display: flex;
-    align-items: center;
-  }
-  ._c-entry-summary__info-desc {
-    padding: 0 1rem;
-    h3 {
-      font-size: 1.2rem;
-    }
-  }
+  border: solid 2px $_color_main1;
 }
 
 //フッター
 ._l-footer {
   padding-top: 20px;
-  background: #306551;
+  background: $_color_main1;
   color: white;
   a {
     color: white;
@@ -148,7 +128,7 @@
 .store {
   h1 {
     padding-top: 5px;
-    color: #306551;
+    color: $_color_main1;
   }
 }
 
@@ -173,7 +153,7 @@
 .store-info {
   margin-left: -12px;
   width: 100vw;
-  border-top: solid 2px #306551;
+  border-top: solid 2px $_color_main1;
   @include _media_min(480px) {
     width: 100%;
     margin-left: 0;
@@ -188,7 +168,7 @@
     border-bottom: solid 1px #999;
   }
   dt {
-    background: lighten(#66B295, 30%);
+    background: lighten($_color_main2, 30%);
     font-weight: normal;
   }
   dd {
