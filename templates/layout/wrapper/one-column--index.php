@@ -7,11 +7,11 @@
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?> data-sticky-footer="true">
-<?php get_template_part( 'template-parts/head' ); ?>
+<?php get_template_part('template-parts/head'); ?>
 
 <body <?php body_class(); ?>>
 <div class="_c-drawer" data-c="drawer">
-	<?php get_template_part( 'template-parts/drawer-nav' ); ?>
+	<?php get_template_part('template-parts/drawer-nav'); ?>
 	<div class="_l-container" data-l="container">
 		<?php get_header(); ?>
 		<div class="index-keyvisual" style="background: url(<?php echo get_stylesheet_directory_uri().'/img/nga-keyvisual.jpg'; ?>) center center/cover no-repeat">
@@ -29,11 +29,14 @@
 	</header>
 
 	<div class="_c-entry__content _u-text-center">
-		<div class="index-description">
+		<div class="index--description">
 		<?php the_content(); ?>
 </div>
+<div class="index--rules">
+	<?php the_field('index_rules'); ?>
+</div>
 		<h2><a href="store/"><img class="storelist-banner" src="<?php echo get_stylesheet_directory_uri().'/img/storelist.jpg'; ?>" alt="参加店舗一覧"></a></h2>
-		<?php get_template_part( 'template-parts/link-pages' ); ?>
+		<?php get_template_part('template-parts/link-pages'); ?>
 	</div>
 </article>						</main>
 					</div>

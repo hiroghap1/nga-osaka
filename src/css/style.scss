@@ -5,6 +5,8 @@ $_color_main1: #306551;
 $_color_main2: #66B295;
 $_color_lightgray: #eee;
 @import 'archive-store';
+@import 'single-map';
+@import 'index';
 //ヘッダー
 ._l-header {
   box-shadow: 0 1px 1px $_color_main1;
