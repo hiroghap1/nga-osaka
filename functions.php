@@ -44,7 +44,7 @@ function nga_scripts()
         wp_enqueue_script('archive-store', get_stylesheet_directory_uri().'/assets/js/archive-store.js', array( 'jquery' ), '1.0', true);
     }
     if (is_page('map')) {
-        wp_enqueue_script('single-map', get_stylesheet_directory_uri().'/assets/js/map.js', array( 'jquery' ), '1.0', true);
+        wp_enqueue_script('single-map', get_stylesheet_directory_uri().'/assets/js/map.js', array( 'jquery' ), '1.1', true);
         wp_enqueue_script('maps-api', 'https://maps.googleapis.com/maps/api/js?callback=initMap&key=AIzaSyBmfQ9WtDcljgigU5CGo6UyH4VbarONNcw', array(), '1.0', true);
     }
 }
