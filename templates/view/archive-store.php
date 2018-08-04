@@ -38,7 +38,17 @@
   <label><span class="_c-checkbox"><input type="checkbox" name="address" value="浪速区" checked><span class="_c-checkbox__control"></span></span>浪速区</label>
   <label><span class="_c-checkbox"><input type="checkbox" name="address" value="天王寺区" checked><span class="_c-checkbox__control"></span></span>天王寺区</label>
   <label><span class="_c-checkbox"><input type="checkbox" name="address" value="東成区" checked><span class="_c-checkbox__control"></span></span>東成区</label>
-</div></div>
+</div>
+<form role="search" method="get" class="_p-search-form archive-store" action="https://nga-osaka.com/">
+  <label class="screen-reader-text" for="s">検索：</label>
+  <div class="_c-input-group">
+    <div class="_c-input-group__field">
+      <input type="search" placeholder="検索 …" value="" name="s">
+    </div>
+    <button class="_c-input-group__btn">Search</button>
+  </div>
+</form>
+</div>
 <ul class="_c-entries" id="store-list">
 	<?php while (have_posts()) : the_post(); ?>
 		<?php get_template_part('template-parts/entry-summary--store'); ?>

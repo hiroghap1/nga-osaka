@@ -40,10 +40,6 @@
 	</div>
 </article>						</main>
 					</div>
-
-					<div class="_c-row__col _c-row__col--1-1">
-						<?php get_sidebar(); ?>
-					</div>
 				</div>
 			</div>
 		</div>

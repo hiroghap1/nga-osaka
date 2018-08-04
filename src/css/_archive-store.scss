@@ -41,8 +41,8 @@
   }
 }
 
-.store-archive_panel {
-  @include _margin(0, 0, 1);
+._p-search-form.archive-store {
+  @include _margin(.5, 0, 1);
 }
 
 .btn-sort_box,

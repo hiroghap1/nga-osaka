@@ -92,6 +92,14 @@ $_color_lightgray: #eee;
   max-width: 100%;
 }
 
+//サイトバー
+.sidebar-title {
+  font-size: 1.5rem;
+  border-bottom: solid 2px #333;
+  padding-bottom: .25rem;
+  margin-bottom: 1rem;
+}
+
 //ドロワーメニュー
 ._c-drawer__body {
   background-color: rgba(48, 101, 81, .925);

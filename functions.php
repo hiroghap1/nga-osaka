@@ -7,7 +7,7 @@ function sidebar_widgets_init()
     'id' => 'sidebar-1',
     'before_widget' => '<div>',
     'after_widget' => '</div>',
-    'before_title' => '<h2 class="rounded">',
+    'before_title' => '<h2 class="sidebar-title">',
     'after_title' => '</h2>',
   ));
 }
@@ -26,6 +26,23 @@ function my_copyright()
 }
 add_filter('mimizuku_copyright', 'my_copyright');
 
+function my_posts_per_page($wp_query)
+{
+    if (is_admin()) {
+        // カスタム投稿タイプ book の時のみ
+        if ($wp_query->is_post_type_archive('store')
+      && post_type_supports($wp_query->query_vars['post_type'], 'page-attributes')) {
+            if (!isset($wp_query->query_vars['orderby'])) {
+                $wp_query->query_vars['orderby'] = 'menu_order';
+            }
+            if (!isset($wp_query->query_vars['order'])) {
+                $wp_query->query_vars['order'] = 'ASC';
+            }
+        }
+    }
+}
+add_action('pre_get_posts', 'my_posts_per_page');
+
 function change_posts_per_page($query)
 {//検索結果の表示件数
     if (is_admin() || ! $query->is_main_query()) {
@@ -34,6 +51,8 @@ function change_posts_per_page($query)
     //参加店舗一覧は50件表示
     if ($query->is_archive('store')) {
         $query->set('posts_per_page', '50');
+        $query->set('orderby', 'menu_order');
+        $query->set('order', 'asc');
     }
 }
 add_action('pre_get_posts', 'change_posts_per_page');
