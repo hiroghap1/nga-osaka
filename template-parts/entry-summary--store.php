@@ -32,8 +32,8 @@ $address = get_field('address');
         <p>着席<?php echo $seating; ?>名 / 立食<?php echo $standing;?>名 / 合計<?php echo $seating + $standing; ?>名</p>
         <h3><?php the_field('amuse'); ?></h3>
         <p class="store-price"><?php echo $price; ?>円</p>
-        <p><?php the_field('store_desc'); ?></p>
       </div>
+      <p><?php the_field('store_desc_short'); ?></p>
 	  </div>
   </section>
 </li>

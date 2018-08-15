@@ -1,3 +1,26 @@
+//index キーヴィジュアル
+.index-keyvisual {
+  margin-bottom: 20px;
+  height: 300px;
+  min-height: 300px;
+  background-size: 2.985vw;
+  background-image: linear-gradient( 90deg, #fff100 0%, #fff100 50%, #fdde00 50%, #fdde00 100%);
+  @include _media-min(md) {
+    height: 400px;
+    background-size: 20px;
+  }
+}
+
+.sakazukin-osaka {
+  height: 100%;
+}
+
+.index-description {
+  display: inline-block;
+  padding: 1em;
+  border: solid 2px $_color_main1;
+}
+
 //index　CSS
 .index--description h2 {
   font-size: 1.5rem;

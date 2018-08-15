@@ -8,7 +8,6 @@
 <article <?php post_class(); ?>>
 	<header class="_c-entry__header">
 		<h1><?php the_title(); ?></h1>
-		<p><?php the_field('store_desc'); ?></p>
 	</header>
 
 	<div class="_c-entry__content">

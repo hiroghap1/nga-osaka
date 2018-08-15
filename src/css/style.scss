@@ -44,6 +44,34 @@ $_color_lightgray: #eee;
   background: $_color_main2;
 }
 
+//グローバルメニュー
+._p-global-nav ._c-navbar__item>a {
+  color: $_color_main1;
+  position: relative;
+  &::before,
+  &::after {
+    display: block;
+    position: absolute;
+    content: '';
+    height: 2px;
+    width: 0;
+    right: 50%;
+    bottom: 0;
+    background: $_color_main2;
+    transition: .3s ease-out;
+  }
+  &::after {
+    left: 50%;
+  }
+  &:hover {
+    color: $_color_main2;
+    &::before,
+    &::after {
+      width: 50%;
+    }
+  }
+}
+
 //パンくずリスト
 ._c-breadcrumbs {
   margin: 15px 0;
@@ -103,23 +131,6 @@ $_color_lightgray: #eee;
 //ドロワーメニュー
 ._c-drawer__body {
   background-color: rgba(48, 101, 81, .925);
-}
-
-//index キーヴィジュアル
-.index-keyvisual {
-  margin-bottom: 20px;
-  height: 300px;
-  min-height: 300px;
-}
-
-.sakazukin-osaka {
-  height: 100%;
-}
-
-.index-description {
-  display: inline-block;
-  padding: 1em;
-  border: solid 2px $_color_main1;
 }
 
 //フッター
