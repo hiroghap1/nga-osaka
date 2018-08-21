@@ -61,8 +61,4 @@ $sake_temp = $sake_temps['value'];
   <dt class="_c-row__col--1-4">参加蔵元氏名（役職）</dt>
   <dd class="_c-row__col--3-4"><?php the_field('sake_man'); ?></dd>
 <?php endif; ?>
-<?php if (get_field('sake_desc')): ?>
-  <dt class="_c-row__col--1-4">蔵元の紹介</dt>
-  <dd class="_c-row__col--3-4"><?php the_field('sake_desc'); ?></dd>
-<?php endif; ?>
 </dl>

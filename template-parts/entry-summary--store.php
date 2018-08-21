@@ -12,9 +12,11 @@ $open = get_field('open');
 $lo = get_field('last_order');
 $price = get_field('price');
 $address = get_field('address');
+$terms = get_the_terms($post->ID, 'area');
+$area = $terms? $terms[0]->name:'';
 ?>
 
-<li class="_c-entries__item _c-entries__item-store" data-open="<?php echo $open; ?>" data-lo="<?php echo $lo; ?>" data-address="<?php echo mb_substr($address, 0, mb_strpos($address, '区')+1); ?>" data-price="<?php echo str_pad($price, 4 - strlen($price), 0, STR_PAD_LEFT); ?>">
+<li class="_c-entries__item _c-entries__item-store" data-open="<?php echo $open; ?>" data-lo="<?php echo $lo; ?>" data-address="<?php echo $area;?>" data-price="<?php echo str_pad($price, 4 - strlen($price), 0, STR_PAD_LEFT); ?>">
   <section class="_c-entry-summary _c-entry-summary-store">
     <header class="_c-entry-summary__header">
 		  <h2 class="_c-entry-summary__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
@@ -33,7 +35,7 @@ $address = get_field('address');
         <h3><?php the_field('amuse'); ?></h3>
         <p class="store-price"><?php echo $price; ?>円</p>
       </div>
-      <p><?php the_field('store_desc_short'); ?></p>
+      <p class="store-desc-short"><?php the_field('store_desc_short'); ?></p>
 	  </div>
   </section>
 </li>

@@ -4,6 +4,13 @@
  * @author inc2734
  * @license GPL-2.0+
  */
+if (isset($_GET['area'])) {
+    $areaList = [$_GET['area']];
+} else {
+    $areaList = [
+   '都島区','北区','福島区','中央区','天王寺区','東成区','浪速区'
+ ];
+}
 ?>
 
 <div class="store-archive_panel">
@@ -31,14 +38,11 @@
     </span></button>
 </div>
 <div class="_c-box--refine_btn" id="_c-box--refine_btn">
-<label><span class="_c-checkbox"><input type="checkbox" name="address" value="北区" checked><span class="_c-checkbox__control"></span></span>北区</label>
-<label><span class="_c-checkbox"><input type="checkbox" name="address" value="都島区" checked><span class="_c-checkbox__control"></span></span>都島区</label>
-<label><span class="_c-checkbox"><input type="checkbox" name="address" value="福島区" checked><span class="_c-checkbox__control"></span></span>福島区</label>
-  <label><span class="_c-checkbox"><input type="checkbox" name="address" value="中央区" checked><span class="_c-checkbox__control"></span></span>中央区</label>
-  <label><span class="_c-checkbox"><input type="checkbox" name="address" value="浪速区" checked><span class="_c-checkbox__control"></span></span>浪速区</label>
-  <label><span class="_c-checkbox"><input type="checkbox" name="address" value="天王寺区" checked><span class="_c-checkbox__control"></span></span>天王寺区</label>
-  <label><span class="_c-checkbox"><input type="checkbox" name="address" value="東成区" checked><span class="_c-checkbox__control"></span></span>東成区</label>
-</div>
+  <div class="area-checkbox">
+    <?php foreach ($areaList as $value) {
+    echo '<label><span class="_c-checkbox"><input type="checkbox" name="address" value="'.$value.'" checked><span class="_c-checkbox__control"></span></span>'.$value.'</label>';
+}?>
+</div></div>
 <form role="search" method="get" class="_p-search-form archive-store" action="https://nga-osaka.com/">
   <label class="screen-reader-text" for="s">検索：</label>
   <div class="_c-input-group">

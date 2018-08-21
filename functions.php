@@ -5,7 +5,7 @@ function sidebar_widgets_init()
     register_sidebar(array(
     'name' => 'sidebar1',
     'id' => 'sidebar-1',
-    'before_widget' => '<div>',
+    'before_widget' => '<div class="sidebar_box">',
     'after_widget' => '</div>',
     'before_title' => '<h2 class="sidebar-title">',
     'after_title' => '</h2>',
@@ -18,6 +18,10 @@ add_filter('mimizuku_layout', function ($layout) {//トップページ読み込�
         return 'one-column--index';
     }
     return $layout;
+});
+add_filter('mimizuku_footer', function ($footer) {
+    return '3row';
+    return $footer;
 });
 
 function my_copyright()
@@ -66,9 +70,7 @@ function nga_scripts()
         wp_enqueue_script('single-map', get_stylesheet_directory_uri().'/assets/js/map.js', array( 'jquery' ), '1.1', true);
         wp_enqueue_script('maps-api', 'https://maps.googleapis.com/maps/api/js?callback=initMap&key=AIzaSyBmfQ9WtDcljgigU5CGo6UyH4VbarONNcw', array(), '1.0', true);
     }
-    if (is_front_page()) {
-        wp_enqueue_script('city', get_stylesheet_directory_uri().'/assets/js/imagemaps.min.js', array( 'jquery' ), '1.1', true);
-    }
+    wp_enqueue_script('city', get_stylesheet_directory_uri().'/assets/js/imagemaps.min.js', array( 'jquery' ), '1.1', true);
 }
 add_action('wp_enqueue_scripts', 'nga_scripts');
 

@@ -121,11 +121,29 @@ $_color_lightgray: #eee;
 }
 
 //サイトバー
+.sidebar_box {
+  margin-bottom: 2rem;
+}
+
 .sidebar-title {
   font-size: 1.5rem;
   border-bottom: solid 2px #333;
   padding-bottom: .25rem;
   margin-bottom: 1rem;
+}
+
+#menu-area-store {
+  list-style: none;
+  a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: $_color_main2;
+    transition: color .3s ease-out;
+    &:hover {
+      text-decoration: underline;
+      color: $_color_main1;
+    }
+  }
 }
 
 //ドロワーメニュー
@@ -149,7 +167,7 @@ $_color_lightgray: #eee;
   font-size: .8rem;
 }
 
-//店舗一覧ページ
+//店舗詳細ページ
 .store {
   h1 {
     padding-top: 5px;
@@ -221,4 +239,35 @@ $_color_lightgray: #eee;
     margin-right: 5px;
     margin-bottom: 5px;
   }
+}
+
+//入力後開放
+.store-desc,
+.store-desc-short {
+  display: none;
+}
+
+//フッター
+._l-footer ._c-row {
+  margin-top: 1rem;
+}
+
+.footer_widget-item {
+  margin-bottom: 2rem;
+}
+
+.footer_widget-title {
+  padding-bottom: .25rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  border-bottom: solid 1px white;
+}
+
+._p-footer-nav .menu-item {
+  display: block;
+  margin-bottom: .5rem;
+}
+
+._c-copyright {
+  margin-top: 2rem;
 }
