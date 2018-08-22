@@ -36,6 +36,12 @@ if (isset($_GET['area'])) {
       <i class="fa fa-sort-asc" aria-hidden="true"></i>
       <i class="fa fa-sort-desc" aria-hidden="true"></i>
     </span></button>
+  <button class="_c-btn _c-btn-sort" data-sort="capacity"><span>収容人数</span>
+  <span>
+      <i class="fa fa-sort" aria-hidden="true"></i>
+      <i class="fa fa-sort-asc" aria-hidden="true"></i>
+      <i class="fa fa-sort-desc" aria-hidden="true"></i>
+    </span></button>
 </div>
 <div class="_c-box--refine_btn" id="_c-box--refine_btn">
   <div class="area-checkbox">

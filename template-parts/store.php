@@ -17,7 +17,11 @@ $sake_temp = $sake_temps['value'];
   <dd class="_c-row__col--3-4"><?php the_field('address'); ?></dd>
   <?php if (get_field('tel')): ?>
   <dt class="_c-row__col--1-4">電話番号</dt>
-  <dd class="_c-row__col--3-4"><a href="tel:<?php str_replace("-", "", the_field('tel')) ?>"><?php the_field('tel');?></a></dd>
+<dd class="_c-row__col--3-4"><?php if (is_mobile()) {
+    echo '<a href="tel:'.str_replace("-", "", get_field('tel')).'">'.get_field('tel').'</a>';
+} else {
+    the_field('tel');
+} ?></dd>
 <?php endif; ?>
   <dt class="_c-row__col--1-4">開催時間</dt>
   <dd class="_c-row__col--3-4"> <?php echo substr_replace(get_field('open'), ':', 2, 0); ?>〜<?php echo substr_replace(get_field('last_order'), ':', 2, 0); ?>(L.O.)</span></dd>
@@ -26,13 +30,17 @@ $sake_temp = $sake_temps['value'];
 <?php if (get_field('amuse')): ?>
   <dt class="_c-row__col--1-4">付きだし</dt>
   <dd class="_c-row__col--3-4"><figure>
-<img class="amuse-photo" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+<img class="amuse-photo" src="<?php echo $image['medium']; ?>" alt="<?php echo $image['alt']; ?>" />
 </figure>
 <h2><?php the_field('amuse'); ?></h2></dd>
 <?php endif; ?>
 <?php if (get_field('price')): ?>
   <dt class="_c-row__col--1-4">料金</dt>
   <dd class="_c-row__col--3-4"><?php the_field('price'); ?>円</dd>
+<?php endif; ?>
+<?php if (get_field('website')): ?>
+  <dt class="_c-row__col--1-4">webサイト</dt>
+  <dd class="_c-row__col--3-4"><a href="<?php the_field('website'); ?>" target="_blank"><?php the_field('website'); ?></a></dd>
 <?php endif; ?>
   <dt class="_c-row__col--1-4">サービス酒</dt>
   <dd class="_c-row__col--3-4"><h2 class="sake-name"><?php the_field('sake'); ?> <?php the_field('sake_name'); ?>

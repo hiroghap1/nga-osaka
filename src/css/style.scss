@@ -44,6 +44,14 @@ $_color_lightgray: #eee;
   background: $_color_main2;
 }
 
+.fa-twitter {
+  color: #55acee;
+}
+
+.fa-facebook {
+  color: #315096;
+}
+
 //グローバルメニュー
 ._p-global-nav ._c-navbar__item>a {
   color: $_color_main1;
@@ -185,7 +193,6 @@ $_color_lightgray: #eee;
   }
   @include _media_min(1023px) {
     height: 400px;
-    margin-top: 50px;
   }
 }
 
@@ -218,6 +225,13 @@ $_color_lightgray: #eee;
     flex-flow: wrap;
     flex-basis: 100%;
     text-align: left;
+    a {
+      color: $_color_main1;
+      transition: color .3s ease-out;
+      &:hover {
+        color: $_color_main2;
+      }
+    }
   }
   h2 {
     font-size: 1.2rem;

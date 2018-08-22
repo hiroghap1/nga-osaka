@@ -8,18 +8,9 @@
 <footer class="_l-footer" role="content-info" data-l="footer">
 	<div class="_c-row">
 		<div class="_c-row__col _c-row__col--1-1 _c-row__col--md-1-3 footer_widget-item">
-      <div class="_c-container">
-      <h2 class="footer_widget-title">ルール</h2>       
-        <ol class="index__list--rules">
-          <li>事前にさかずきんバッジ（500円）を購入！</li>
-          <li>10月1日は朝からそのバッジをつけて【日本酒の日】をさりげなくアピール！</li>
-          <li>さかずきんバッジをつけて参加店舗に入店。参加店舗にはそれぞれの蔵元さんがいてます！</li>
-          <li>その蔵のお酒と付け出しを受け取ります！1杯目のお酒（60ml）はサービス。付け出しは有料（400円～1,000円）</li>
-          <li>お店の料理と参加蔵のお酒を楽しむ！</li>
-          <li>お次の店にゴーアラウンド！2軒目以降も1杯目のお酒（60ml）はサービス！</li>
-          <li>さらに、日本中にゴーアラウンド！</li>
-        </ol>
-      </div>
+    <?php if (is_active_sidebar('footer-1')) : ?>
+					<?php dynamic_sidebar('footer-1'); ?>
+		<?php endif; ?>
 		</div>
 		<div class="_c-row__col _c-row__col--1-1 _c-row__col--md-1-3 footer_widget-item">
       <div class="_c-container">

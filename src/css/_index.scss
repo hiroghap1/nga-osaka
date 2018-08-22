@@ -21,12 +21,20 @@
   border: solid 2px $_color_main1;
 }
 
-//index　CSS
 .index--description h2 {
   font-size: 1.5rem;
   line-height: 1.5;
   color: $_color_main1;
   font-weight: bold;
+}
+
+@include _media-max(sm) {
+  .index--description {
+    p,
+    h2 {
+      text-align: left;
+    }
+  }
 }
 
 .index--rules {
