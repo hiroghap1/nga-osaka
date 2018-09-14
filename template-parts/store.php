@@ -10,6 +10,9 @@ $sake_tastes = get_field_object('sake_taste');
 $sake_taste = $sake_tastes['value'];
 $sake_temps = get_field_object('sake_temp');
 $sake_temp = $sake_temps['value'];
+$image1 = get_field('store_image1');
+$image2 = get_field('store_image2');
+$image3 = get_field('store_image3');
 ?>
 
 <dl class="store-info _c-row">
@@ -30,9 +33,9 @@ $sake_temp = $sake_temps['value'];
 <?php if (get_field('amuse')): ?>
   <dt class="_c-row__col--1-4">付きだし</dt>
   <dd class="_c-row__col--3-4"><figure>
-<img class="amuse-photo" src="<?php echo $image['medium']; ?>" alt="<?php echo $image['alt']; ?>" />
+<img class="amuse-photo" src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" />
 </figure>
-<h2><?php the_field('amuse'); ?></h2></dd>
+<h2 class="_c-row__col--1-1"><?php the_field('amuse'); ?></h2></dd>
 <?php endif; ?>
 <?php if (get_field('price')): ?>
   <dt class="_c-row__col--1-4">料金</dt>
@@ -68,5 +71,22 @@ $sake_temp = $sake_temps['value'];
   <?php if (get_field('sake_man')): ?>
   <dt class="_c-row__col--1-4">参加蔵元氏名（役職）</dt>
   <dd class="_c-row__col--3-4"><?php the_field('sake_man'); ?></dd>
+<?php endif; ?>
+<?php if ($image1): ?>
+  <dt class="_c-row__col--1-4">写真</dt>
+  <dd class="_c-row__col--3-4" style="display: flex;justify-content: space-around;">
+    <figure>
+      <a href="<?php echo $image1['url']; ?>" rel="store-image"><img class="img-thumbnail" src="<?php echo $image1['sizes']['thumbnail']; ?>" alt="<?php echo $image1['alt']; ?>" /></a>
+    </figure>
+    <?php if ($image2): ?>
+      <figure>
+        <a href="<?php echo $image2['url']; ?>" rel="store-image"><img class="img-thumbnail" src="<?php echo $image2['sizes']['thumbnail']; ?>" alt="<?php echo $image2['alt']; ?>" /></a>
+      </figure>
+    <?php endif; ?>
+    <?php if ($image3): ?>
+      <figure>
+        <a href="<?php echo $image3['url']; ?>" rel="store-image"><img class="img-thumbnail" src="<?php echo $image3['sizes']['thumbnail']; ?>" alt="<?php echo $image3['alt']; ?>" /></a>
+      </figure>
+    <?php endif; ?></dd>
 <?php endif; ?>
 </dl>

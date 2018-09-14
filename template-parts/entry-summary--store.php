@@ -21,7 +21,10 @@ $area = $terms? $terms[0]->name:'';
   <section class="_c-entry-summary _c-entry-summary-store">
     <header class="_c-entry-summary__header">
 		  <h2 class="_c-entry-summary__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-	  </header>
+    </header>
+    <div class="_u-text-right">
+      <a href="<?php the_permalink(); ?>" class="btn">店舗の詳細はこちら</a>
+    </div>
 	  <div class="_c-entry-summary__info _c-row">
       <div class="_c-row__col--1-4 _c-entry-summary__info-photo">
         <figure>

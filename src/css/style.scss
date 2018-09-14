@@ -5,6 +5,7 @@ $_color_main1: #306551;
 $_color_main2: #66B295;
 $_color_lightgray: #eee;
 @import 'archive-store';
+@import 'store';
 @import 'single-map';
 @import 'index';
 //ヘッダー
@@ -22,6 +23,9 @@ $_color_lightgray: #eee;
 
 ._c-site-branding__title-img {
   width: 200px;
+  @include _media-max(sm) {
+    width: 150px;
+  }
 }
 
 ._c-hamburger-btn::after {
@@ -50,6 +54,14 @@ $_color_lightgray: #eee;
 
 .fa-facebook {
   color: #315096;
+}
+
+.fa-twitter,
+.fa-facebook {
+  transition: transform .2s ease-out;
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 //グローバルメニュー
@@ -95,7 +107,7 @@ $_color_lightgray: #eee;
 
 //共通設定
 ._l-main {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 ._u-hidden-all {
@@ -123,9 +135,43 @@ $_color_lightgray: #eee;
   }
 }
 
-.storelist-banner {
-  width: 600px;
+._c-section__title {
+  margin-bottom: 2rem;
+}
+
+.index_latest-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  color: $_color_main1;
+  &::before,
+  &::after {
+    display: block;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: $_color_main1;
+  }
+  &::before {
+    margin-right: .25rem;
+  }
+  &::after {
+    margin-left: .25rem;
+  }
+}
+
+h3 {
+  margin: 2rem 0 1rem;
+}
+
+.img-thumbnail {
+  padding: .25rem;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: .25rem;
   max-width: 100%;
+  height: auto;
 }
 
 //サイトバー
@@ -167,103 +213,9 @@ $_color_lightgray: #eee;
   a {
     color: white;
   }
-}
-
-._c-copyright {
-  padding-bottom: 1rem;
-  text-align: center;
-  font-size: .8rem;
-}
-
-//店舗詳細ページ
-.store {
-  h1 {
-    padding-top: 5px;
-    color: $_color_main1;
+  ._c-row {
+    margin-top: 1rem;
   }
-}
-
-.store-keyvisual {
-  background: center center/cover no-repeat;
-  height: 200px;
-  width: 100vw;
-  @include _media_min(639px) {
-    height: 300px;
-    background-attachment: fixed;
-  }
-  @include _media_min(1023px) {
-    height: 400px;
-  }
-}
-
-._c-entry__content .store-info {
-  margin-top: 15px;
-}
-
-.store-info {
-  margin-left: -12px;
-  width: 100vw;
-  border-top: solid 2px $_color_main1;
-  @include _media_min(480px) {
-    width: 100%;
-    margin-left: 0;
-    border-left: solid 1px #999;
-    border-right: solid 1px #999;
-  }
-  dt,
-  dd {
-    display: flex;
-    align-items: center;
-    padding: 1rem;
-    border-bottom: solid 1px #999;
-  }
-  dt {
-    background: lighten($_color_main2, 30%);
-    font-weight: normal;
-  }
-  dd {
-    flex-flow: wrap;
-    flex-basis: 100%;
-    text-align: left;
-    a {
-      color: $_color_main1;
-      transition: color .3s ease-out;
-      &:hover {
-        color: $_color_main2;
-      }
-    }
-  }
-  h2 {
-    font-size: 1.2rem;
-    .pref {
-      display: inline-block;
-      padding: .2rem .5rem;
-      background: #666;
-      color: white;
-    }
-  }
-}
-
-.sake-type {
-  margin-left: 0;
-  li {
-    display: inline-block;
-    padding: 3px 5px;
-    border: solid 1px #666;
-    margin-right: 5px;
-    margin-bottom: 5px;
-  }
-}
-
-//入力後開放
-.store-desc,
-.store-desc-short {
-  display: none;
-}
-
-//フッター
-._l-footer ._c-row {
-  margin-top: 1rem;
 }
 
 .footer_widget-item {
@@ -283,5 +235,8 @@ $_color_lightgray: #eee;
 }
 
 ._c-copyright {
+  padding-bottom: 1rem;
   margin-top: 2rem;
+  text-align: center;
+  font-size: .8rem;
 }

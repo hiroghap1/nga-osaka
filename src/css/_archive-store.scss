@@ -47,6 +47,20 @@
       font-size: 1.2rem;
     }
   }
+  .btn {
+    display: inline-block;
+    margin-right: 0;
+    margin-left: auto;
+    padding: .3rem .5rem;
+    background: $_color_main2;
+    font-size: .8rem;
+    color: white;
+    transition: .3s ease-out;
+    &:hover {
+      background: $_color_main1;
+      text-decoration: none;
+    }
+  }
 }
 
 ._p-search-form.archive-store {
@@ -84,6 +98,7 @@
 
 ._c-btn-sort {
   padding: 0;
+  margin-bottom: .5rem;
   &.on {
     background: lighten($_color_lightgray, 5%);
     box-shadow: 0 2px 3px $_color_lightgray;
