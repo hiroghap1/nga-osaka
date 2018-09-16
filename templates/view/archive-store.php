@@ -59,7 +59,7 @@ if (isset($_GET['area'])) {
   </div>
 </form>
 </div>
-<ul class="_c-entries" id="store-list">
+<ul class="_c-row _c-row--margin-s" id="store-list" style="list-style:none;">
 	<?php while (have_posts()) : the_post(); ?>
 		<?php get_template_part('template-parts/entry-summary--store'); ?>
 	<?php endwhile; ?>

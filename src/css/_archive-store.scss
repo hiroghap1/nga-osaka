@@ -5,6 +5,7 @@
       content: ':'$asc;
     }
   }
+
   &.sort-desc {
     span:first-child::after {
       content: ':'$desc;
@@ -14,39 +15,42 @@
 
 //店舗一覧ページ
 ._c-entries__item-store {
-  margin-bottom: 15px;
   padding: .5rem .5rem;
+  height: 100%;
   border: solid 1px $_color_main2;
   box-shadow: 0 1px 1px $_color_main2;
+
   a {
     text-decoration: none;
     color: $_color_main1;
+
     &:hover {
       text-decoration: underline;
     }
-    @include _media-min(md) {
-      padding: 1rem 1.5rem;
-    }
   }
+
   ._c-entry-summary__title {
     margin-bottom: 10px;
     padding-left: .5rem;
-    font-size: 1.1rem;
-    @include _media-min(md) {
-      padding-left: 0;
-      font-size: 1.5rem;
-    }
+    font-size: 1.2rem;
   }
+
+  h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    display: none; //0924解禁
+  }
+
   ._c-entry-summary__info-photo {
     display: flex;
     align-items: center;
+    display: none; //0924解禁
   }
+
   ._c-entry-summary__info-desc {
-    padding: 0 1rem;
-    h3 {
-      font-size: 1.2rem;
-    }
+    padding: 0 .5rem;
   }
+
   .btn {
     display: inline-block;
     margin-right: 0;
@@ -56,10 +60,20 @@
     font-size: .8rem;
     color: white;
     transition: .3s ease-out;
+
     &:hover {
       background: $_color_main1;
       text-decoration: none;
     }
+  }
+
+  .store-tel::before {
+    content: '\f095';
+    font-family: Fontawesome;
+  }
+
+  .store-price {
+    font-size: 1.2rem;
   }
 }
 
@@ -70,14 +84,17 @@
 .btn-sort_box,
 .btn-refine_box {
   width: 50%;
+
   &::before {
     margin-right: 5px;
     content: '\f055';
     font-family: Fontawesome;
     color: $_color_main1;
   }
+
   &.open {
     border-bottom: none;
+
     &::before {
       content: '\f056';
     }
@@ -99,43 +116,54 @@
 ._c-btn-sort {
   padding: 0;
   margin-bottom: .5rem;
+
   &.on {
     background: lighten($_color_lightgray, 5%);
     box-shadow: 0 2px 3px $_color_lightgray;
   }
+
   &:hover {
     background: $_color_lightgray;
   }
+
   span {
     display: inline-block;
     padding: .75rem;
   }
+
   .fa-sort-asc {
     display: none;
   }
+
   .fa-sort-desc {
     display: none;
   }
+
   &.sort-asc {
     i:not(.fa-sort-asc) {
       display: none;
     }
+
     .fa-sort-asc {
       display: inline;
     }
   }
+
   &.sort-desc {
     i:not(.fa-sort-desc) {
       display: none;
     }
+
     .fa-sort-desc {
       display: inline;
     }
   }
+
   &:not(.on) {
     i:not(.fa-sort) {
       display: none;
     }
+
     .fa-sort {
       display: inline;
     }
