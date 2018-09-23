@@ -1,7 +1,9 @@
-<?php 
+<?php
 $image = get_field('amuse_photo');
 $seating = get_field('seating') == false ? 0:get_field('seating');
 $standing = get_field('standing') == false ? 0:get_field('standing');
+$smokings = get_field_object('smoking');
+$smoking = $smokings['value'];
 $sake_freshes = get_field_object('sake_fresh');
 $sake_fresh = $sake_freshes['value'];
 $sake_fragrances = get_field_object('sake_fragrance');
@@ -32,14 +34,19 @@ $image3 = get_field('store_image3');
   <dd class="_c-row__col--3-4">着席<?php echo $seating; ?>名/立食<?php echo $standing;?>名/合計<?php echo $seating + $standing; ?>名</dd>
 <?php if (get_field('amuse')): ?>
   <dt class="_c-row__col--1-4">付きだし</dt>
-  <dd class="_c-row__col--3-4"><figure>
-<img class="amuse-photo" src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" />
-</figure>
-<h2 class="_c-row__col--1-1"><?php the_field('amuse'); ?></h2></dd>
+  <dd class="_c-row__col--3-4">
+    <figure>
+      <a href="<?php echo $image['url']; ?>" rel="store-image"><img class="amuse-photo img-thumbnail" src="<?php echo $image['sizes']['thumbnail']; ?>" alt="<?php the_field('amuse'); ?>" /></a>
+    </figure>
+    <h2 class="_c-row__col--1-1"><?php the_field('amuse'); ?></h2></dd>
 <?php endif; ?>
 <?php if (get_field('price')): ?>
   <dt class="_c-row__col--1-4">料金</dt>
   <dd class="_c-row__col--3-4"><?php the_field('price'); ?>円</dd>
+<?php endif; ?>
+<?php if ($smokings['label']): ?>
+  <dt class="_c-row__col--1-4">禁煙 / 喫煙</dt>
+  <dd class="_c-row__col--3-4"><?php echo $smokings['choices'][ $smoking ];?></dd>
 <?php endif; ?>
 <?php if (get_field('website')): ?>
   <dt class="_c-row__col--1-4">webサイト</dt>
@@ -74,17 +81,17 @@ $image3 = get_field('store_image3');
 <?php endif; ?>
 <?php if ($image1): ?>
   <dt class="_c-row__col--1-4">写真</dt>
-  <dd class="_c-row__col--3-4" style="display: flex;justify-content: space-around;">
-    <figure>
+  <dd class="_c-row__col--3-4" style="display: flex;justify-content: space-around;padding-bottom: .5rem;">
+    <figure style="margin-bottom:.5rem;">
       <a href="<?php echo $image1['url']; ?>" rel="store-image"><img class="img-thumbnail" src="<?php echo $image1['sizes']['thumbnail']; ?>" alt="<?php echo $image1['alt']; ?>" /></a>
     </figure>
     <?php if ($image2): ?>
-      <figure>
+      <figure style="margin-bottom:.5rem;">
         <a href="<?php echo $image2['url']; ?>" rel="store-image"><img class="img-thumbnail" src="<?php echo $image2['sizes']['thumbnail']; ?>" alt="<?php echo $image2['alt']; ?>" /></a>
       </figure>
     <?php endif; ?>
     <?php if ($image3): ?>
-      <figure>
+      <figure style="margin-bottom:.5rem;">
         <a href="<?php echo $image3['url']; ?>" rel="store-image"><img class="img-thumbnail" src="<?php echo $image3['sizes']['thumbnail']; ?>" alt="<?php echo $image3['alt']; ?>" /></a>
       </figure>
     <?php endif; ?></dd>

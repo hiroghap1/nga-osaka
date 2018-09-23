@@ -2,7 +2,7 @@
 @import '../../../mimizuku/src/css/style';
 //変数
 $_color_main1: #306551;
-$_color_main2: #66B295;
+$_color_main2: #66b295;
 $_color_lightgray: #eee;
 @import 'archive-store';
 @import 'store';
@@ -43,7 +43,7 @@ $_color_lightgray: #eee;
   font-size: 8px;
 }
 
-._c-hamburger-btn[aria-expanded="true"]::after {
+._c-hamburger-btn[aria-expanded='true']::after {
   content: 'CLOSE';
 }
 
@@ -61,7 +61,7 @@ $_color_lightgray: #eee;
 
 .fa-twitter,
 .fa-facebook {
-  transition: transform .2s ease-out;
+  transition: transform 0.2s ease-out;
 
   &:hover {
     transform: scale(1.1);
@@ -69,7 +69,7 @@ $_color_lightgray: #eee;
 }
 
 //グローバルメニュー
-._p-global-nav ._c-navbar__item>a {
+._p-global-nav ._c-navbar__item > a {
   color: $_color_main1;
   position: relative;
 
@@ -83,7 +83,7 @@ $_color_lightgray: #eee;
     right: 50%;
     bottom: 0;
     background: $_color_main2;
-    transition: .3s ease-out;
+    transition: 0.3s ease-out;
   }
 
   &::after {
@@ -166,11 +166,11 @@ $_color_lightgray: #eee;
   }
 
   &::before {
-    margin-right: .25rem;
+    margin-right: 0.25rem;
   }
 
   &::after {
-    margin-left: .25rem;
+    margin-left: 0.25rem;
   }
 }
 
@@ -179,10 +179,10 @@ h3 {
 }
 
 .img-thumbnail {
-  padding: .25rem;
+  padding: 0.25rem;
   background-color: #fff;
   border: 1px solid #dee2e6;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   max-width: 100%;
   height: auto;
 }
@@ -190,9 +190,46 @@ h3 {
 hr {
   border: none;
   border-top: solid 1px $_color_main2;
-  margin: .5rem 0;
+  margin: 0.5rem 0;
+}
+//アーカイブページ
+._c-entry-summary__title {
+  font-size: 1.5rem;
+  a {
+    color: $_color_main1;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
+//faq
+.section-faq {
+  dt,
+  dd {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 1rem;
+    &::before {
+      display: block;
+      width: 3rem;
+      height: 3rem;
+      content: '';
+      background: url(https://nga-osaka.com/wp-content/uploads/2018/09/faq-q.jpg)
+        center center/cover no-repeat;
+      flex-basis: 3rem;
+      flex-shrink: 0;
+    }
+  }
+  dd {
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+    &::before {
+      background-image: url(https://nga-osaka.com/wp-content/uploads/2018/09/faq-a.jpg);
+    }
+  }
+}
 //サイトバー
 .sidebar_box {
   margin-bottom: 2rem;
@@ -201,7 +238,7 @@ hr {
 .sidebar-title {
   font-size: 1.5rem;
   border-bottom: solid 2px #333;
-  padding-bottom: .25rem;
+  padding-bottom: 0.25rem;
   margin-bottom: 1rem;
 }
 
@@ -212,7 +249,7 @@ hr {
     text-decoration: none;
     font-size: 1.2rem;
     color: $_color_main2;
-    transition: color .3s ease-out;
+    transition: color 0.3s ease-out;
 
     &:hover {
       text-decoration: underline;
@@ -223,7 +260,7 @@ hr {
 
 //ドロワーメニュー
 ._c-drawer__body {
-  background-color: rgba(48, 101, 81, .925);
+  background-color: rgba(48, 101, 81, 0.925);
 }
 
 //フッター
@@ -246,7 +283,7 @@ hr {
 }
 
 .footer_widget-title {
-  padding-bottom: .25rem;
+  padding-bottom: 0.25rem;
   margin-bottom: 1rem;
   font-size: 1rem;
   border-bottom: solid 1px white;
@@ -254,12 +291,12 @@ hr {
 
 ._p-footer-nav .menu-item {
   display: block;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 ._c-copyright {
   padding-bottom: 1rem;
   margin-top: 2rem;
   text-align: center;
-  font-size: .8rem;
+  font-size: 0.8rem;
 }

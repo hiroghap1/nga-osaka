@@ -2,20 +2,20 @@
 @mixin sort-order($asc, $desc) {
   &.sort-asc {
     span:first-child::after {
-      content: ':'$asc;
+      content: ':' $asc;
     }
   }
 
   &.sort-desc {
     span:first-child::after {
-      content: ':'$desc;
+      content: ':' $desc;
     }
   }
 }
 
 //店舗一覧ページ
 ._c-entries__item-store {
-  padding: .5rem .5rem;
+  padding: 0.5rem 0.5rem;
   height: 100%;
   border: solid 1px $_color_main2;
   box-shadow: 0 1px 1px $_color_main2;
@@ -31,35 +31,31 @@
 
   ._c-entry-summary__title {
     margin-bottom: 10px;
-    padding-left: .5rem;
+    padding-left: 0.5rem;
     font-size: 1.2rem;
   }
 
   h3 {
     margin: 0;
-    font-size: 1.2rem;
-    display: none; //0924解禁
+    padding-left: 0.5rem;
+    font-size: 1rem;
   }
 
   ._c-entry-summary__info-photo {
-    display: flex;
-    align-items: center;
-    display: none; //0924解禁
   }
 
   ._c-entry-summary__info-desc {
-    padding: 0 .5rem;
+    padding: 0 0.5rem;
   }
 
   .btn {
     display: inline-block;
-    margin-right: 0;
-    margin-left: auto;
-    padding: .3rem .5rem;
+    margin: 10px 0;
+    padding: 0.3rem 0.5rem;
     background: $_color_main2;
-    font-size: .8rem;
+    font-size: 0.8rem;
     color: white;
-    transition: .3s ease-out;
+    transition: 0.3s ease-out;
 
     &:hover {
       background: $_color_main1;
@@ -72,13 +68,35 @@
     font-family: Fontawesome;
   }
 
+  .store-seating::before,
+  .store-smoking::before {
+    display: inline-block;
+    margin-right: 5px;
+    width: 1em;
+    height: 1em;
+    content: '';
+    background: url(https://nga-osaka.com/wp-content/uploads/2018/09/seat.png)
+      center center/contain no-repeat;
+  }
+
+  .store-smoking::before {
+    background-image: url(https://nga-osaka.com/wp-content/uploads/2018/09/smoke.png);
+  }
+
   .store-price {
     font-size: 1.2rem;
   }
 }
 
+.area-checkbox {
+  label {
+    display: inline-block;
+    margin-right: 0.5rem;
+  }
+}
+
 ._p-search-form.archive-store {
-  @include _margin(.5, 0, 1);
+  @include _margin(0.5, 0, 1);
 }
 
 .btn-sort_box,
@@ -108,14 +126,14 @@
 ._c-box--sort_btn,
 ._c-box--refine_btn {
   display: none;
-  @include _padding(.5);
+  @include _padding(0.5);
   border: solid 1px _light($_color_gray);
   border-top: none;
 }
 
 ._c-btn-sort {
   padding: 0;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 
   &.on {
     background: lighten($_color_lightgray, 5%);
@@ -128,7 +146,7 @@
 
   span {
     display: inline-block;
-    padding: .75rem;
+    padding: 0.75rem;
   }
 
   .fa-sort-asc {
@@ -170,42 +188,42 @@
   }
 }
 
-[data-class="open"] {
+[data-class='open'] {
   .store-open {
     font-weight: bold;
   }
 }
 
-[data-class="lo"] {
+[data-class='lo'] {
   .store-lo {
     font-weight: bold;
   }
 }
 
-[data-class="price"] {
+[data-class='price'] {
   .store-price {
     font-weight: bold;
   }
 }
 
-[data-class="capacity"] {
+[data-class='capacity'] {
   .store-capacity {
     font-weight: bold;
   }
 }
 
-[data-sort="open"] {
+[data-sort='open'] {
   @include sort-order('早い順', '遅い順');
 }
 
-[data-sort="lo"] {
+[data-sort='lo'] {
   @include sort-order('早い順', '遅い順');
 }
 
-[data-sort="price"] {
+[data-sort='price'] {
   @include sort-order('安い順', '高い順');
 }
 
-[data-sort="capacity"] {
+[data-sort='capacity'] {
   @include sort-order('少ない順', '多い順');
 }

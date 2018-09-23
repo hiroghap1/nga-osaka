@@ -53,8 +53,9 @@ if (isset($_GET['area'])) {
   <label class="screen-reader-text" for="s">検索：</label>
   <div class="_c-input-group">
     <div class="_c-input-group__field">
-      <input type="search" placeholder="検索 …" value="" name="s">
+      <input type="search" placeholder="店舗を検索" value="" name="s">
     </div>
+    <input type="hidden" name="post-type" value="store">
     <button class="_c-input-group__btn">Search</button>
   </div>
 </form>
