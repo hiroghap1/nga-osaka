@@ -53,7 +53,7 @@ $image3 = get_field('store_image3');
   <dd class="_c-row__col--3-4"><a href="<?php the_field('website'); ?>" target="_blank"><?php the_field('website'); ?></a></dd>
 <?php endif; ?>
   <dt class="_c-row__col--1-4">サービス酒</dt>
-  <dd class="_c-row__col--3-4"><h2 class="sake-name"><?php the_field('sake'); ?> <?php the_field('sake_name'); ?>
+  <dd class="_c-row__col--3-4"><h2 class="sake-name"><?php the_field('sake_name'); ?>
   <small class="pref"><?php the_field('sake_pref'); ?></small></h2></dd>
   <?php if ($sake_freshes['label'] || $sake_fragrances['label'] ||$sake_tastes['label']): ?>
   <dt class="_c-row__col--1-4">お酒のタイプ</dt>

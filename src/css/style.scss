@@ -69,7 +69,7 @@ $_color_lightgray: #eee;
 }
 
 //グローバルメニュー
-._p-global-nav ._c-navbar__item > a {
+._p-global-nav ._c-navbar__item>a {
   color: $_color_main1;
   position: relative;
 
@@ -192,12 +192,15 @@ hr {
   border-top: solid 1px $_color_main2;
   margin: 0.5rem 0;
 }
+
 //アーカイブページ
 ._c-entry-summary__title {
   font-size: 1.5rem;
+
   a {
     color: $_color_main1;
     text-decoration: none;
+
     &:hover {
       text-decoration: underline;
     }
@@ -206,30 +209,34 @@ hr {
 
 //faq
 .section-faq {
+
   dt,
   dd {
     display: flex;
     align-items: baseline;
     margin-bottom: 1rem;
+
     &::before {
       display: block;
       width: 3rem;
       height: 3rem;
       content: '';
-      background: url(https://nga-osaka.com/wp-content/uploads/2018/09/faq-q.jpg)
-        center center/cover no-repeat;
+      background: url(https://nga-osaka.com/wp-content/uploads/2018/09/faq-q.jpg) center center/cover no-repeat;
       flex-basis: 3rem;
       flex-shrink: 0;
     }
   }
+
   dd {
     margin-left: 2rem;
     margin-bottom: 2rem;
+
     &::before {
       background-image: url(https://nga-osaka.com/wp-content/uploads/2018/09/faq-a.jpg);
     }
   }
 }
+
 //サイトバー
 .sidebar_box {
   margin-bottom: 2rem;
@@ -242,7 +249,7 @@ hr {
   margin-bottom: 1rem;
 }
 
-#menu-area-store {
+.sidebar_box .menu {
   list-style: none;
 
   a {

@@ -21,7 +21,7 @@ $desc = get_field('store_desc_short');
 $area = $terms? $terms[0]->name:'';
 ?>
 
-<li class="_c-row__col _c-row__col--1-1 _c-row__col--md-1-2 _c-row__col--lg-1-3 store-list-item" data-open="<?php echo $open; ?>" data-lo="<?php echo $lo; ?>" data-address="<?php echo $area;?>" data-price="<?php echo str_pad($price, 4 - strlen($price), 0, STR_PAD_LEFT); ?>" data-capacity="<?php echo $capacity; ?>">
+<li class="_c-row__col _c-row__col--1-1 _c-row__col--md-1-2 _c-row__col--lg-1-3 store-list-item" data-hidden='[]' data-open="<?php echo $open; ?>" data-lo="<?php echo $lo; ?>" data-address="<?php echo $area;?>" data-price="<?php echo str_pad($price, 4 - strlen($price), 0, STR_PAD_LEFT); ?>" data-capacity="<?php echo $capacity; ?>" data-smoking="<?php echo $smoking; ?>">
   <section class="_c-entry-summary _c-entry-summary-store _c-entries__item _c-entries__item-store">
     <header class="_c-entry-summary__header">
       <h2 class="_c-entry-summary__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
@@ -34,30 +34,30 @@ $area = $terms? $terms[0]->name:'';
         <h3><?php the_field('amuse'); ?></h3>
       <?php endif; ?>
     </header>
-    <div class="_u-text-right">
+    <div style="display: flex;justify-content: space-between;padding-left: .5rem;">
+      <p class="store-price"><?php echo $price; ?>円</p>
       <a href="<?php the_permalink(); ?>" class="btn">店舗の詳細はこちら</a>
-      <div class="_c-entry-summary__info _u-text-left">
-        <div class="_c-entry-summary__info-desc">
-          <p><i class="fa fa-map-marker" aria-hidden="true"></i> 大阪市<?php echo $address; ?></p>
-          <?php if ($tel): ?>
-            <p class="store-tel">
-              <?php if (is_mobile()) {
+    </div>
+    <div class="_c-entry-summary__info _u-text-left">
+      <div class="_c-entry-summary__info-desc">
+        <p><i class="fa fa-map-marker" aria-hidden="true"></i> 大阪市<?php echo $address; ?></p>
+        <?php if ($tel): ?>
+          <p class="store-tel">
+            <?php if (is_mobile()) {
     echo '<a href="tel:'.str_replace("-", "", $tel).'">'.$tel.'</a>';
 } else {
     echo $tel;
 }?>
-            </p>
-          <?php endif; ?>
-          <p><i class="fa fa-clock-o" aria-hidden="true"></i> <span class="store-open"><?php echo substr_replace($open, ':', 2, 0); ?></span>～<span class="store-lo"><?php echo substr_replace($lo, ':', 2, 0); ?>(L.O.)</span></p>
-          <p class="store-seating">着席<?php echo $seating; ?>名 / 立食<?php echo $standing;?>名 / <span class="store-capacity">合計<?php echo $capacity; ?>名</span></p>
-          <p class="store-smoking"><?php echo $smokings['choices'][ $smoking ];?></p>
-          <p class="store-price"><?php echo $price; ?>円</p>
-        </div>
-        <?php if ($desc): ?>
-          <hr>
-          <p class="store-desc-short"><?php echo $desc; ?></p>
-<?php endif; ?>
+          </p>
+        <?php endif; ?>
+        <p><i class="fa fa-clock-o" aria-hidden="true"></i> <span class="store-open"><?php echo substr_replace($open, ':', 2, 0); ?></span>～<span class="store-lo"><?php echo substr_replace($lo, ':', 2, 0); ?>(L.O.)</span></p>
+        <p class="store-seating">着席<?php echo $seating; ?>名 / 立食<?php echo $standing;?>名 / <span class="store-capacity">合計<?php echo $capacity; ?>名</span></p>
+        <p class="store-smoking"><?php echo $smokings['choices'][ $smoking ];?></p>
       </div>
+      <?php if ($desc): ?>
+        <hr>
+        <p class="store-desc-short"><?php echo $desc; ?></p>
+      <?php endif; ?>
     </div>
   </section>
 </li>

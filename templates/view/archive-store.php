@@ -11,6 +11,27 @@ if (isset($_GET['area'])) {
    '都島区','北区','福島区','中央区','天王寺区','東成区','浪速区'
  ];
 }
+if (isset($_GET['smoking'])) {
+    switch ($_GET['smoking']) {
+      case 'no_smoking':
+        $smokeList = ['no_smoking'=>'禁煙'];
+        break;
+      case 'smoking':
+        $smokeList = ['smoking'=>'喫煙'];
+        break;
+      case 'area_smoking':
+        $smokeList = ['area_smoking'=>'分煙'];
+        break;
+      default:
+        $smokeList = [
+          'no_smoking'=>'禁煙','smoking'=>'喫煙','area_smoking'=>'分煙'
+        ];
+    }
+} else {
+    $smokeList = [
+ 'no_smoking'=>'禁煙','smoking'=>'喫煙','area_smoking'=>'分煙'
+];
+}
 ?>
 
 <div class="store-archive_panel">
@@ -44,11 +65,20 @@ if (isset($_GET['area'])) {
     </span></button>
 </div>
 <div class="_c-box--refine_btn" id="_c-box--refine_btn">
-  <div class="area-checkbox">
+  <div class="checkbox-list" id="address">
+    <p>地域で絞り込み</p>
     <?php foreach ($areaList as $value) {
     echo '<label><span class="_c-checkbox"><input type="checkbox" name="address" value="'.$value.'" checked><span class="_c-checkbox__control"></span></span>'.$value.'</label>';
 }?>
-</div></div>
+  </div>
+  <hr>
+  <div class="checkbox-list" id="smoking">
+    <p>禁煙/喫煙で絞り込み</p>
+    <?php foreach ($smokeList as $key => $value) {
+    echo '<label><span class="_c-checkbox"><input type="checkbox" name="smoking" value="'.$key.'" checked><span class="_c-checkbox__control"></span></span>'.$value.'</label>';
+}?>
+  </div>
+</div>
 <form role="search" method="get" class="_p-search-form archive-store" action="https://nga-osaka.com/">
   <label class="screen-reader-text" for="s">検索：</label>
   <div class="_c-input-group">

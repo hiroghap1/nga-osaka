@@ -97,6 +97,39 @@ function change_posts_per_page($query)
 }
 add_action('pre_get_posts', 'change_posts_per_page');
 
+
+//カスタムフィールドで検索
+global $my_public_query_vars;
+$my_public_query_vars = array( 'smoking', 'sake_fresh','sake_fragrance','sake_taste' );
+
+add_filter('query_vars', 'my_query_vars');
+function my_query_vars($public_query_vars)
+{
+    global $my_public_query_vars;
+    return array_merge($public_query_vars, $my_public_query_vars);
+}
+
+add_action('pre_get_posts', 'my_pre_get_posts');
+function my_pre_get_posts($query)
+{
+    if (! is_admin() && is_post_type_archive('store') /* && 'store' == $query->get( 'post_type' ) */) {
+        $meta_query = array();
+        
+        global $my_public_query_vars;
+        foreach ($my_public_query_vars as $key) {
+            if ($val = $query->get($key)) {
+                $meta_query[] = array(
+                    'key'   => $key,
+                    'value' => $val,
+                );
+            }
+        }
+        
+        if (! empty($meta_query)) {
+            $query->set('meta_query', $meta_query);
+        }
+    }
+}
 function nga_scripts()
 {
     if (is_post_type_archive('store')) {

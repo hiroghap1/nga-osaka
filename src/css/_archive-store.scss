@@ -88,13 +88,15 @@
   }
 }
 
-.area-checkbox {
+.checkbox-list {
   label {
     display: inline-block;
     margin-right: 0.5rem;
   }
+  & + hr {
+    border-color: #ccc;
+  }
 }
-
 ._p-search-form.archive-store {
   @include _margin(0.5, 0, 1);
 }
