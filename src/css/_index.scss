@@ -1,6 +1,5 @@
 //index キーヴィジュアル
 .index-keyvisual {
-  margin-bottom: 20px;
   height: 200px;
   min-height: 200px;
   background-size: 2.985vw;
@@ -14,6 +13,13 @@
 
 .sakazukin-osaka {
   height: 100%;
+}
+
+.important-info {
+  background: #993333;
+  color: white;
+  margin-bottom: 2rem;
+  padding: .5rem;
 }
 
 .index-description {

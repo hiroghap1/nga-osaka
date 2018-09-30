@@ -32,6 +32,49 @@ if (isset($_GET['smoking'])) {
  'no_smoking'=>'禁煙','smoking'=>'喫煙','area_smoking'=>'分煙'
 ];
 }
+if (isset($_GET['sake_fresh'])) {
+    switch ($_GET['sake_fresh']) {
+    case 'fresh':
+      $freshList = ['fresh'=>'生酒'];
+      break;
+    case 'burned':
+      $freshList = ['burned'=>'火入れしたお酒'];
+      break;
+    default:
+    $freshList = ['fresh' => '生酒','burned'=>'火入れしたお酒'];
+  }
+} else {
+    $freshList = ['fresh' => '生酒','burned'=>'火入れしたお酒'];
+}
+if (isset($_GET['sake_fragrance'])) {
+    switch ($_GET['sake_fragrance']) {
+  case 'gorgeous':
+    $fragranceList = ['gorgeous'=>'華やかな香り'];
+    break;
+  case 'calm':
+    $fragranceList = ['calm'=>'穏やかな香り'];
+    break;
+  default:
+  $fragranceList = ['gorgeous'=>'華やかな香り','calm'=>'穏やかな香り'];
+}
+} else {
+    $fragranceList = ['gorgeous'=>'華やかな香り','calm'=>'穏やかな香り'];
+}
+if (isset($_GET['sake_taste'])) {
+    switch ($_GET['sake_taste']) {
+case 'clear':
+  $tasteList = ['clear'=>'スッキリした味'];
+  break;
+case 'massive':
+  $tasteList = ['massive'=>'しっかりした味'];
+  break;
+default:
+$tasteList = ['clear'=>'スッキリした味','massive'=>'しっかりした味'];
+}
+} else {
+    $tasteList = ['clear'=>'スッキリした味','massive'=>'しっかりした味'];
+}
+$tempList = ['cold'=>'冷酒','normal'=>'常温','hot'=>'燗酒'];
 ?>
 
 <div class="store-archive_panel">
@@ -78,6 +121,35 @@ if (isset($_GET['smoking'])) {
     echo '<label><span class="_c-checkbox"><input type="checkbox" name="smoking" value="'.$key.'" checked><span class="_c-checkbox__control"></span></span>'.$value.'</label>';
 }?>
   </div>
+  <hr>
+  <p>サービス酒のタイプで絞り込み</p>
+  <div class="_c-row">
+    <div class="checkbox-list _c-row__col" id="fresh">
+      <p>火入れ</p>
+      <?php foreach ($freshList as $key => $value) {
+    echo '<label><span class="_c-checkbox"><input type="checkbox" name="fresh" value="'.$key.'" checked><span class="_c-checkbox__control"></span></span>'.$value.'</label>';
+}?>
+    </div>
+    <div class="checkbox-list _c-row__col" id="fragrance">
+      <p>香り</p>
+      <?php foreach ($fragranceList as $key => $value) {
+    echo '<label><span class="_c-checkbox"><input type="checkbox" name="fragrance" value="'.$key.'" checked><span class="_c-checkbox__control"></span></span>'.$value.'</label>';
+}?>
+    </div>
+    <div class="checkbox-list _c-row__col" id="taste">
+      <p>味</p>
+      <?php foreach ($tasteList as $key => $value) {
+    echo '<label><span class="_c-checkbox"><input type="checkbox" name="taste" value="'.$key.'" checked><span class="_c-checkbox__control"></span></span>'.$value.'</label>';
+}?>
+    </div>
+  </div>
+  <?php if (is_user_logged_in()): ?>
+  <div class="checkbox-list-check" id="temp">
+      <p>提供温度</p>
+      <?php foreach ($tempList as $key => $value) {
+    echo '<label><span class="_c-checkbox"><input type="checkbox" name="temp" value="'.$key.'" checked><span class="_c-checkbox__control"></span></span>'.$value.'</label>';
+}?>
+  </div><?php endif; ?>
 </div>
 <form role="search" method="get" class="_p-search-form archive-store" action="https://nga-osaka.com/">
   <label class="screen-reader-text" for="s">検索：</label>

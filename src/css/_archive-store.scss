@@ -2,13 +2,13 @@
 @mixin sort-order($asc, $desc) {
   &.sort-asc {
     span:first-child::after {
-      content: ':' $asc;
+      content: ':'$asc;
     }
   }
 
   &.sort-desc {
     span:first-child::after {
-      content: ':' $desc;
+      content: ':'$desc;
     }
   }
 }
@@ -42,6 +42,29 @@
   }
 
   ._c-entry-summary__info-photo {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  ._c-entry-summary__info-sake {
+    list-style: none;
+    margin-left: .25rem;
+
+    li:not(:first-child) {
+      color: $_color_main1;
+    }
+
+    li:nth-child(2)::before {
+      content: '火:';
+    }
+
+    li:nth-child(3)::before {
+      content: '香:';
+    }
+
+    li:nth-child(4)::before {
+      content: '味:';
+    }
   }
 
   ._c-entry-summary__info-desc {
@@ -75,8 +98,7 @@
     width: 1em;
     height: 1em;
     content: '';
-    background: url(https://nga-osaka.com/wp-content/uploads/2018/09/seat.png)
-      center center/contain no-repeat;
+    background: url(https://nga-osaka.com/wp-content/uploads/2018/09/seat.png) center center/contain no-repeat;
   }
 
   .store-smoking::before {
@@ -88,15 +110,18 @@
   }
 }
 
-.checkbox-list {
+.checkbox-list,
+.checkbox-list-check {
   label {
     display: inline-block;
     margin-right: 0.5rem;
   }
-  & + hr {
+
+  &+hr {
     border-color: #ccc;
   }
 }
+
 ._p-search-form.archive-store {
   @include _margin(0.5, 0, 1);
 }

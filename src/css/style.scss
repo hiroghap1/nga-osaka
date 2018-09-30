@@ -237,6 +237,19 @@ hr {
   }
 }
 
+//付き出しギャラリー
+#amuse-list img {
+  transition: opacity .3s ease-out;
+
+  &:hover {
+    opacity: .7;
+  }
+}
+
+.fancybox-title-over a {
+  color: white;
+}
+
 //サイトバー
 .sidebar_box {
   margin-bottom: 2rem;

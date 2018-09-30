@@ -17,8 +17,9 @@
 		<div class="index-keyvisual">
       <div class="_c-container sakazukin-osaka"style="background: url(<?php echo get_stylesheet_directory_uri().'/img/nga-osaka-index.png'; ?>) center center/contain no-repeat"></div>
     </div>
-
-		<div class="_l-contents" role="document" data-l="contents">
+    <?php if (get_field('important_field')): ?>
+    <div class="important-info"><div class="_c-container"><?php the_field('important_field'); ?></div></div><?php endif; ?>
+		<div style="margin-top: 30px;" class="_l-contents" role="document" data-l="contents">
       <main class="_l-main" role="main">
         <article <?php post_class(); ?>>
           <div class="_c-container">

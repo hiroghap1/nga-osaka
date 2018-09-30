@@ -17,11 +17,19 @@ $address = get_field('address');
 $terms = get_the_terms($post->ID, 'area');
 $smokings = get_field_object('smoking');
 $smoking = $smokings['value'];
+$sake_freshes = get_field_object('sake_fresh');
+$sake_fresh = $sake_freshes['value'];
+$sake_fragrances = get_field_object('sake_fragrance');
+$sake_fragrance = $sake_fragrances['value'];
+$sake_tastes = get_field_object('sake_taste');
+$sake_taste = $sake_tastes['value'];
+$sake_temps = get_field('sake_temp');
+$sake_temp = $sake_temps['value'];
 $desc = get_field('store_desc_short');
 $area = $terms? $terms[0]->name:'';
 ?>
 
-<li class="_c-row__col _c-row__col--1-1 _c-row__col--md-1-2 _c-row__col--lg-1-3 store-list-item" data-hidden='[]' data-open="<?php echo $open; ?>" data-lo="<?php echo $lo; ?>" data-address="<?php echo $area;?>" data-price="<?php echo str_pad($price, 4 - strlen($price), 0, STR_PAD_LEFT); ?>" data-capacity="<?php echo $capacity; ?>" data-smoking="<?php echo $smoking; ?>">
+<li class="_c-row__col _c-row__col--1-1 _c-row__col--md-1-2 _c-row__col--lg-1-3 store-list-item" data-hidden='[]' data-open="<?php echo $open; ?>" data-lo="<?php echo $lo; ?>" data-address="<?php echo $area;?>" data-price="<?php echo str_pad($price, 4 - strlen($price), 0, STR_PAD_LEFT); ?>" data-capacity="<?php echo $capacity; ?>" data-smoking="<?php echo $smoking; ?>" data-fresh="<?php echo $sake_fresh; ?>" data-fragrance="<?php echo $sake_fragrance; ?>" data-taste="<?php echo $sake_taste; ?>" data-temp='[<?php foreach ($sake_temps as $temp):?>"<?php echo $temp; ?>",<?php endforeach; ?>]'>
   <section class="_c-entry-summary _c-entry-summary-store _c-entries__item _c-entries__item-store">
     <header class="_c-entry-summary__header">
       <h2 class="_c-entry-summary__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
@@ -30,6 +38,39 @@ $area = $terms? $terms[0]->name:'';
           <figure>
             <a href="<?php echo $image['url']; ?>" rel="amuse-image"><img class="amuse-photo img-thumbnail" src="<?php echo $image['sizes']['thumbnail']; ?>" alt="<?php echo get_field('amuse')." 〜 ".get_the_title(); ?>" /></a>
           </figure>
+          <ul class="_c-entry-summary__info-sake">
+            <li><strong>サービス酒</strong></li>
+            <?php if ($sake_freshes['label']): ?>
+              <li><?php switch ($sake_fresh) {
+                  case 'fresh':
+                    echo '生酒';
+                    break;
+                  case 'burned':
+                    echo '火入れ';
+                    break;
+                }?></li>
+            <?php endif; ?>
+            <?php if ($sake_fragrances['label']): ?>
+              <li><?php switch ($sake_fragrance) {
+                  case 'gorgeous':
+                    echo '華やか';
+                    break;
+                  case 'calm':
+                    echo '穏やか';
+                    break;
+                }?></li>
+            <?php endif; ?>
+            <?php if ($sake_tastes['label']): ?>
+              <li><?php switch ($sake_taste) {
+                  case 'clear':
+                    echo 'スッキリ';
+                    break;
+                  case 'massive':
+                    echo 'しっかり';
+                    break;
+                }?></li>
+            <?php endif; ?>
+          </ul>
         </div>
         <h3><?php the_field('amuse'); ?></h3>
       <?php endif; ?>
@@ -44,10 +85,10 @@ $area = $terms? $terms[0]->name:'';
         <?php if ($tel): ?>
           <p class="store-tel">
             <?php if (is_mobile()) {
-    echo '<a href="tel:'.str_replace("-", "", $tel).'">'.$tel.'</a>';
-} else {
-    echo $tel;
-}?>
+                    echo '<a href="tel:'.str_replace("-", "", $tel).'">'.$tel.'</a>';
+                } else {
+                    echo $tel;
+                }?>
           </p>
         <?php endif; ?>
         <p><i class="fa fa-clock-o" aria-hidden="true"></i> <span class="store-open"><?php echo substr_replace($open, ':', 2, 0); ?></span>～<span class="store-lo"><?php echo substr_replace($lo, ':', 2, 0); ?>(L.O.)</span></p>
