@@ -11,6 +11,9 @@
 	</header>
 
 	<div class="_c-entry__content">
+    <div class="_u-text-center">
+      <p class="inline-block _u-text-left">画像をクリックすると大きな写真が見れます。<br>料理名をクリックすると店舗の詳細ページへ移動します。</p>
+    </div>
     <?php
       $args = array(
         'post_type' => 'store',

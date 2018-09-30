@@ -49,7 +49,7 @@
                       <li class="_c-row__col _c-row__col--1-1 _c-row__col--md-1-3"><a href="store/tobaya/">和風バール『鳥羽屋』 & 奥播磨(兵庫)</a></li>
                       <li class="_c-row__col _c-row__col--1-1 _c-row__col--md-1-3"><a href="store/kussu/">紀の国屋くっす～ & 小松人(石川)</a></li>
                       <li class="_c-row__col _c-row__col--1-1 _c-row__col--md-1-3"><a href="store/lamanmina/">ラ・マンミーナ & 舞美人(福井)</a></li>
-                      <li class="_c-row__col _c-row__col--1-1 _c-row__col--md-1-3"><a href="store/issyoumaru/">鮪魂 一将丸 & 明尽(滋賀)</a></li>
+                      <li class="_c-row__col _c-row__col--1-1 _c-row__col--md-1-3"><a href="store/kazusyomaru/">鮪魂 一将丸 & 明尽(滋賀)</a></li>
                       <li class="_c-row__col _c-row__col--1-1 _c-row__col--md-1-3"><a href="store/yahiro/">片町 弥ひろ & 居谷里(長野)</a></li>
                     </ul>
                     <h3>【北区】</h3>
@@ -73,7 +73,7 @@
                       <li class="_c-row__col _c-row__col--1-1 _c-row__col--md-1-3"><a href="store/jackandmachilda/">ジャックとマチルダ & いづみ橋(神奈川)</a></li>
                       <li class="_c-row__col _c-row__col--1-1 _c-row__col--md-1-3"><a href="store/ginzou/">和酒 吟蔵 & 米宗(愛知)</a></li>
                       <li class="_c-row__col _c-row__col--1-1 _c-row__col--md-1-3"><a href="store/salada/">菜米炭” & 但馬(兵庫)</a></li>
-                      <li class="_c-row__col _c-row__col--1-1 _c-row__col--md-1-3"><a href="store/kodai/">日本酒弘大 & 辨天娘(鳥取)</a></li>
+                      <li class="_c-row__col _c-row__col--1-1 _c-row__col--md-1-3"><a href="store/hiroshidai/">日本酒弘大 & 辨天娘(鳥取)</a></li>
                     </ul>
                     <h3>【中央区】</h3>
                     <ul class="_c-row _c-row--margin">

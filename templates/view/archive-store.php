@@ -143,13 +143,12 @@ $tempList = ['cold'=>'冷酒','normal'=>'常温','hot'=>'燗酒'];
 }?>
     </div>
   </div>
-  <?php if (is_user_logged_in()): ?>
   <div class="checkbox-list-check" id="temp">
       <p>提供温度</p>
       <?php foreach ($tempList as $key => $value) {
     echo '<label><span class="_c-checkbox"><input type="checkbox" name="temp" value="'.$key.'" checked><span class="_c-checkbox__control"></span></span>'.$value.'</label>';
 }?>
-  </div><?php endif; ?>
+  </div>
 </div>
 <form role="search" method="get" class="_p-search-form archive-store" action="https://nga-osaka.com/">
   <label class="screen-reader-text" for="s">検索：</label>

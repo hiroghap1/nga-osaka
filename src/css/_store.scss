@@ -10,10 +10,12 @@
   background: center center/cover no-repeat;
   height: 200px;
   width: 100vw;
+
   @include _media_min(639px) {
     height: 300px;
     background-attachment: fixed;
   }
+
   @include _media_min(1023px) {
     height: 400px;
   }
@@ -27,12 +29,14 @@
   margin-left: -12px;
   width: 100vw;
   border-top: solid 2px $_color_main1;
+
   @include _media_min(480px) {
     width: 100%;
     margin-left: 0;
     border-left: solid 1px #999;
     border-right: solid 1px #999;
   }
+
   dt,
   dd {
     display: flex;
@@ -40,24 +44,30 @@
     padding: 1rem;
     border-bottom: solid 1px #999;
   }
+
   dt {
     background: lighten($_color_main2, 30%);
     font-weight: normal;
   }
+
   dd {
     flex-flow: wrap;
     flex-basis: 100%;
     text-align: left;
+
     a {
       color: $_color_main1;
       transition: color .3s ease-out;
+
       &:hover {
         color: $_color_main2;
       }
     }
   }
+
   h2 {
     font-size: 1.2rem;
+
     .pref {
       display: inline-block;
       padding: .2rem .5rem;
@@ -69,6 +79,7 @@
 
 .sake-type {
   margin-left: 0;
+
   li {
     display: inline-block;
     padding: 3px 5px;

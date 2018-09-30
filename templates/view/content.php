@@ -9,15 +9,17 @@
 	<header class="_c-entry__header">
 		<h1 class="_c-entry__title"><?php the_title(); ?></h1>
     <div class="_c-entry__meta">
-			<?php get_template_part( 'template-parts/entry-meta' ); ?>
+			<?php get_template_part('template-parts/entry-meta'); ?>
 		</div>
 	</header>
 
 	<div class="_c-entry__content">
     <?php the_content(); ?>
-		<?php get_template_part( 'template-parts/link-pages' ); ?>
+		<?php get_template_part('template-parts/link-pages'); ?>
 	</div>
 </article>
 
 <?php
-comments_template( '', true );
+if (comments_open() || pings_open() || get_comments_number()) {
+    comments_template('', true);
+}

@@ -193,6 +193,18 @@ hr {
   margin: 0.5rem 0;
 }
 
+._c-entry__header {
+  margin-bottom: 2rem;
+}
+
+.type-post {
+  h2 {
+    padding: .5rem;
+    font-size: 1.7rem;
+    border-left: solid 5px $_color_main1;
+  }
+}
+
 //アーカイブページ
 ._c-entry-summary__title {
   font-size: 1.5rem;
@@ -319,4 +331,8 @@ hr {
   margin-top: 2rem;
   text-align: center;
   font-size: 0.8rem;
+}
+
+.inline-block {
+  display: inline-block;
 }

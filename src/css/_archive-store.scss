@@ -65,6 +65,10 @@
     li:nth-child(4)::before {
       content: '味:';
     }
+
+    li:nth-child(5)::before {
+      content: '温:';
+    }
   }
 
   ._c-entry-summary__info-desc {
@@ -92,7 +96,8 @@
   }
 
   .store-seating::before,
-  .store-smoking::before {
+  .store-smoking::before,
+  .store-sake-name::before {
     display: inline-block;
     margin-right: 5px;
     width: 1em;
@@ -103,6 +108,10 @@
 
   .store-smoking::before {
     background-image: url(https://nga-osaka.com/wp-content/uploads/2018/09/smoke.png);
+  }
+
+  .store-sake-name::before {
+    background-image: url(https://nga-osaka.com/wp-content/uploads/2018/10/sake.png);
   }
 
   .store-price {

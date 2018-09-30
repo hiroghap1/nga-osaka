@@ -19,7 +19,8 @@ $image3 = get_field('store_image3');
 
 <dl class="store-info _c-row">
 <dt class="_c-row__col--1-4">住所</dt>
-  <dd class="_c-row__col--3-4"><?php the_field('address'); ?></dd>
+  <dd class="_c-row__col--3-4"><?php the_field('address'); ?> <br>
+  <a href="https://maps.google.co.jp/maps?q=<?php the_field('store_name');?>" target="_blank">⇒Googleマップで見る</a></dd>
   <?php if (get_field('tel')): ?>
   <dt class="_c-row__col--1-4">電話番号</dt>
 <dd class="_c-row__col--3-4"><?php if (is_mobile()) {

@@ -70,6 +70,21 @@ $area = $terms? $terms[0]->name:'';
                     break;
                 }?></li>
             <?php endif; ?>
+            <?php if ($sake_temps): ?>
+              <li><?php foreach ($sake_temps as $temp) {
+                    switch ($temp) {
+                  case 'cold':
+                    echo '冷 ';
+                    break;
+                  case 'normal':
+                    echo '常 ';
+                    break;
+                  case 'hot':
+                    echo '燗 ';
+                    break;
+                }
+                }?></li>
+            <?php endif; ?>
           </ul>
         </div>
         <h3><?php the_field('amuse'); ?></h3>
@@ -82,6 +97,7 @@ $area = $terms? $terms[0]->name:'';
     <div class="_c-entry-summary__info _u-text-left">
       <div class="_c-entry-summary__info-desc">
         <p><i class="fa fa-map-marker" aria-hidden="true"></i> 大阪市<?php echo $address; ?></p>
+        <p class="_u-text-right"><a href="https://maps.google.co.jp/maps?q=<?php the_field('store_name');?>" target="_blank">⇒Googleマップで見る</a></p>
         <?php if ($tel): ?>
           <p class="store-tel">
             <?php if (is_mobile()) {
@@ -94,6 +110,7 @@ $area = $terms? $terms[0]->name:'';
         <p><i class="fa fa-clock-o" aria-hidden="true"></i> <span class="store-open"><?php echo substr_replace($open, ':', 2, 0); ?></span>～<span class="store-lo"><?php echo substr_replace($lo, ':', 2, 0); ?>(L.O.)</span></p>
         <p class="store-seating">着席<?php echo $seating; ?>名 / 立食<?php echo $standing;?>名 / <span class="store-capacity">合計<?php echo $capacity; ?>名</span></p>
         <p class="store-smoking"><?php echo $smokings['choices'][ $smoking ];?></p>
+        <p class="store-sake-name"><?php the_field('sake_name'); ?></p>
       </div>
       <?php if ($desc): ?>
         <hr>
